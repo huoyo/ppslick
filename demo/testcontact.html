@@ -11,7 +11,7 @@
     window.onload = function () {
         let ppEasy = new PpEasy();
         let contactMe = ppEasy.createContactMe({});
-        ppEasy.setContactMeTypes(contactMe,["-请选择类型-",'业务问题'])
+        ppEasy.setContactMeTypes(contactMe,["-请选择类型-",'业务问题']);
         // ppEasy.setContactMeNumber(contactMe,"")
         ppEasy.onSubmit(contactMe,function (des,type,phone) {
             console.log(des)

@@ -184,10 +184,22 @@ PpEasy.prototype.setContactMeTypes = function (dom, dataList){
     }
 }
 
+PpEasy.prototype.disableContactMeTypes = function (dom){
+    let searchDomId = dom.id;
+    let conDom = document.getElementById(`${searchDomId}-contact-type`);
+    conDom.style.display = 'none';
+}
+
 PpEasy.prototype.setContactMeNumber = function (dom, data){
     let searchDomId = dom.id;
     let conDom = document.getElementById(`${searchDomId}-contact-phone`);
     conDom.value = data;
+}
+
+PpEasy.prototype.disableContactMeNumber = function (dom){
+    let searchDomId = dom.id;
+    let conDom = document.getElementById(`${searchDomId}-contact-phone`);
+    conDom.style.display = 'none';
 }
 
 PpEasy.prototype.setContactMeDescription = function (dom, data){
