@@ -21,7 +21,11 @@
 
 1、搜索组件，参考[testcontact.html](demo/testcontact.html)
 
+![输入图片说明](image/image.png)
+
 2、联系我组件，参考[testcontact.html.html](demo/testcontact.html)
+
+![输入图片说明](contact.png)
 
 ## 教程
 
