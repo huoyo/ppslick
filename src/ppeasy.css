@@ -47,8 +47,8 @@
     width: 100%;
     height: 45px;
     border-radius: 5px;
-    border: 1px solid #08051f;
-    background-color: #08051f;
+    border: 1px solid #2108dd;
+    background-color: #2108dd;
     font-size: 18px;
     font-weight: bold;
     color: #f7f7fc;
@@ -88,7 +88,7 @@
     outline-style: none;
     /*border-radius: 5px 0 0 5px;*/
     border: none;
-    border-bottom: 1px solid #e8e8f4;
+    border-bottom: 1px solid #2108dd;
     font-size: 18px;
     color: #090910;
     padding-left: 10px;
