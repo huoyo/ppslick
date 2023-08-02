@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="pptext.css"/>
+    <script src="pptext.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        showModal('modal-full')
+    }
+</script>
+<body>
+<div id="modal-full" class="modal modal-contact" style="">
+    <div class="modal-line">
+        <textarea class="message-area" placeholder="请描述需求"></textarea>
+    </div>
+    <div class="modal-line">
+        <select class="message-input">
+            <option>--业务类别--</option>
+            <option>交流</option>
+            <option>沟通</option>
+        </select>
+    </div>
+    <div class="modal-line">
+        <input class="message-input" type="search" placeholder="联系方式"/>
+    </div>
+    <div class="modal-line">
+        <button class="message-button">确定</button>
+    </div>
+</div>
+</body>
+</html>

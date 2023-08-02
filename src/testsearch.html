@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="ppeasy.css"/>
+    <script src="ppeasy.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let ppEasy = new PpEasy();
+        let search = ppEasy.createSearcher({});
+
+        ppEasy.onInput(search,function (text) {
+            console.log(`输入内容：${text}`)
+        })
+        ppEasy.onSearch(search,function (text) {
+            console.log(`搜索内容：${text}`)
+        })
+    }
+</script>
+<body>
+
+</body>
+</html>

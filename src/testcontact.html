@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="ppeasy.css"/>
+    <script src="ppeasy.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let ppEasy = new PpEasy();
+        let contactMe = ppEasy.createContactMe({});
+        ppEasy.setContactMeTypes(contactMe,["aaaa",'ererefewfe'])
+        ppEasy.setContactMeNumber(contactMe,"89798798778998789")
+        ppEasy.onSubmit(contactMe,function (des,type,phone) {
+            console.log(des)
+            console.log(type)
+            console.log(phone)
+        })
+
+    }
+</script>
+<body>
+
+</body>
+</html>
