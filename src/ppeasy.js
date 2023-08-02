@@ -197,24 +197,29 @@ PpEasy.prototype.setContactMeDescription = function (dom, data){
 }
 
 PpEasy.prototype.onSubmit = function (dom, fun){
-    let buttonId = `${dom.id}-contact-button`;
-    let buttonDom = document.getElementById(buttonId);
-    buttonDom.addEventListener("click",function () {
-        let desDom = document.getElementById(`${dom.id}-contact-area`);
-        if (!desDom.value) {
-            desDom.setAttribute('placeholder','请输入内容');
-            return
-        }
-        let typeDom = document.getElementById(`${dom.id}-contact-type`);
+    if (dom.className.indexOf("contact")>-1) {
+        let buttonId = `${dom.id}-contact-button`;
+        let buttonDom = document.getElementById(buttonId);
+        buttonDom.addEventListener("click",function () {
+            let desDom = document.getElementById(`${dom.id}-contact-area`);
+            if (!desDom.value) {
+                desDom.setAttribute('placeholder','请输入内容');
+                return
+            }
+            let typeDom = document.getElementById(`${dom.id}-contact-type`);
 
-        let phoneDom = document.getElementById(`${dom.id}-contact-phone`);
-        if (!phoneDom.value) {
-            phoneDom.setAttribute('placeholder','请输入联系方式');
-            return
-        }
-        fun(desDom.value,typeDom.value,phoneDom.value);
-        closeModal(`${dom.id}`)
-    });
+            let phoneDom = document.getElementById(`${dom.id}-contact-phone`);
+            if (!phoneDom.value) {
+                phoneDom.setAttribute('placeholder','请输入联系方式');
+                return
+            }
+            fun(desDom.value,typeDom.value,phoneDom.value);
+            closeModal(`${dom.id}`)
+        });
+    }else if (dom.className.indexOf("search")>-1) {
+        this.onSearch(dom,fun);
+    }
+
 }
 
 function listCandidates(domId,value){
