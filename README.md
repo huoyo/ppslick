@@ -16,6 +16,8 @@
 
 <h4>一个javascript组件库，提供基本的联系我和搜索之类的弹窗组件（无需写html+css），拿来即用</h4>
 
+<h4>A lightweight javascript library to create some modal windows without html and css like `contact me`、`search` etc.</h4>
+
 
 ## 使用参考
 
