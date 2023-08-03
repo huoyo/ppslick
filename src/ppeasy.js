@@ -31,7 +31,7 @@ function closeAllModal() {
     }
 }
 
-function PpEasy() {
+function PPEasy() {
     this.defaultOptions = new Map();
     this.defaultOptions.set('left','calc((100% - 30%)/2 - 30px)');
     this.defaultOptions.set('top','30%');
@@ -43,52 +43,8 @@ function PpEasy() {
     this.defaultOptions.set('fontSize','18px');
 }
 
-PpEasy.prototype.onSearch = function (searchDom, fun){
-    searchDom.onkeydown = function (e) {
-        if (e.keyCode==13) {
-            let input = document.getElementById(`${searchDom.id}-search-input`);
-            let searchText = input.value;
-            if (searchText) {
-                fun(searchText);
-                input.value = '';
-                closeModal(`${searchDom.id}`)
-            }else {
-                input.setAttribute('placeholder','请输入搜索内容');
-            }
-        }
-    }
-}
 
-PpEasy.prototype.onInput = function (searchDom, fun){
-    searchDom.oninput = function (e) {
-        let value = e.data;
-        if (value) {
-            fun(value);
-        }
-    }
-}
-
-PpEasy.prototype.setSearchCandidates = function (searchDom, dataList){
-    let searchDomId = searchDom.id;
-    let conDom = document.getElementById(`${searchDomId}-search-candidates`);
-    conDom.innerHTML = '';
-    if (dataList.length>0) {
-        conDom.innerHTML = '';
-        for (let i = 0; i < dataList.length; i++) {
-            let li = document.createElement('li');
-            li.innerHTML = dataList[i];
-            conDom.appendChild(li);
-        }
-    }
-}
-PpEasy.prototype.clearSearchCandidates = function (searchDom){
-    let searchDomId = searchDom.id;
-    let conDom = document.getElementById(`${searchDomId}-search-candidates`);
-    conDom.innerHTML = '';
-}
-
-
-PpEasy.prototype.createSearcher = function (options){
+PPEasy.prototype.createSearcher = function (options){
     let componentOptions = {}
     if (options) {
         componentOptions['left'] = options['left'] || this.defaultOptions.get('left');
@@ -113,7 +69,7 @@ PpEasy.prototype.createSearcher = function (options){
     let id = guid();
     searchDom.id = id;
     searchDom.innerHTML = `<div class="ppmodal-line">
-        <input id="${id}-search-input" style="background-color: ${componentOptions['backgroundColor']};color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"  class="search-input" type="search" placeholder="${componentOptions['placeholder']}" oninput="listCandidates('${id}',this.value)"/>
+        <input id="${id}-search-input" style="background-color: ${componentOptions['backgroundColor']};color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"  class="search-input  ${id}-index-0" type="search" placeholder="${componentOptions['placeholder']}" oninput="listCandidates('${id}',this.value)"/>
     </div>
     <div class="ppmodal-line">
        <ul id="${id}-search-candidates" class="search-candidates">
@@ -122,11 +78,182 @@ PpEasy.prototype.createSearcher = function (options){
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
     showModal(id,componentOptions['maskColor']);
-    return searchDom;
+    return new SearchComponent(searchDom);
+}
+
+function SearchComponent(e) {
+    this.element = e;
+}
+
+SearchComponent.prototype.getElement = function () {
+    return this.element;
+}
+SearchComponent.prototype.setElement = function (e) {
+    this.element = e;
+}
+
+SearchComponent.prototype.setAttribute = function (index,property,value) {
+    let element = this.getElement();
+    let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
+    inputs[0].setAttribute(property,value);
 }
 
 
-PpEasy.prototype.createContactMe = function (options){
+SearchComponent.prototype.onSearch = function (fun) {
+    let dom = this.getElement();
+    dom.onkeydown = function (e) {
+        if (e.keyCode==13) {
+            let input = document.getElementById(`${dom.id}-search-input`);
+            let searchText = input.value;
+            if (searchText) {
+                fun(searchText);
+                input.value = '';
+                closeModal(`${dom.id}`)
+            }else {
+                input.setAttribute('placeholder','请输入搜索内容');
+            }
+        }
+    }
+}
+
+SearchComponent.prototype.onSubmit = function (fun) {
+    this.onSearch(fun);
+}
+
+SearchComponent.prototype.onInput = function (fun) {
+    this.getElement().oninput = function (e) {
+        let value = e.data;
+        if (value) {
+            fun(value);
+        }
+    }
+}
+
+SearchComponent.prototype.setSearchCandidates = function (dataList){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-search-candidates`);
+    conDom.innerHTML = '';
+    if (dataList.length>0) {
+        conDom.innerHTML = '';
+        for (let i = 0; i < dataList.length; i++) {
+            let li = document.createElement('li');
+            li.innerHTML = dataList[i];
+            conDom.appendChild(li);
+        }
+    }
+}
+
+SearchComponent.prototype.clearSearchCandidates = function (){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-search-candidates`);
+    conDom.innerHTML = '';
+}
+
+SearchComponent.prototype.setPlaceholder = function (text) {
+    let dom = this.getElement();
+    let input = document.getElementById(`${dom.id}-search-input`);
+    input.setAttribute('placeholder',text);
+}
+
+SearchComponent.prototype.setValue = function (text) {
+    let dom = this.getElement();
+    let input = document.getElementById(`${dom.id}-search-input`);
+    input.value = text;
+}
+
+function ContactMeComponent(e) {
+    this.element = e;
+}
+
+ContactMeComponent.prototype.getElement = function () {
+    return this.element;
+}
+
+ContactMeComponent.prototype.setElement = function (e) {
+    this.element = e;
+}
+
+ContactMeComponent.prototype.setDescription = function (text) {
+    let element = this.getElement();
+    let desDom = document.getElementById(`${element.id}-contact-area`);
+    desDom.value = text;
+}
+
+ContactMeComponent.prototype.setDescriptionPlaceholder = function (text){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-contact-area`);
+    conDom.setAttribute("placeholder",text);
+}
+
+ContactMeComponent.prototype.setTypeList = function (dataList) {
+    let element = this.getElement();
+    let conDom = document.getElementById(`${element.id}-contact-type`);
+    conDom.innerHTML = '';
+    if (dataList.length>0) {
+        conDom.innerHTML = '';
+        for (let i = 0; i < dataList.length; i++) {
+            let li = document.createElement('option');
+            li.innerHTML = dataList[i];
+            conDom.appendChild(li);
+        }
+    }
+}
+
+
+ContactMeComponent.prototype.disableType = function (){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-contact-type`);
+    conDom.style.display = 'none';
+}
+
+ContactMeComponent.prototype.setNumber = function (data){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-contact-phone`);
+    conDom.value = data;
+}
+
+ContactMeComponent.prototype.setNumberPlaceholder = function (text){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-contact-phone`);
+    conDom.setAttribute("placeholder",text);
+}
+
+ContactMeComponent.prototype.disableNumber = function (){
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-contact-phone`);
+    conDom.style.display = 'none';
+}
+
+ContactMeComponent.prototype.setAttribute = function (index,property,value) {
+    let element = this.getElement();
+    let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
+    inputs[0].setAttribute(property,value);
+}
+
+
+ContactMeComponent.prototype.onSubmit = function (fun){
+    let dom = this.getElement();
+    let buttonId = `${dom.id}-contact-button`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click",function () {
+        let desDom = document.getElementById(`${dom.id}-contact-area`);
+        if (!desDom.value) {
+            desDom.setAttribute('placeholder','请输入内容');
+            return
+        }
+        let typeDom = document.getElementById(`${dom.id}-contact-type`);
+
+        let phoneDom = document.getElementById(`${dom.id}-contact-phone`);
+        if (!phoneDom.value) {
+            phoneDom.setAttribute('placeholder','请输入联系方式');
+            return
+        }
+        fun(desDom.value,typeDom.value,phoneDom.value);
+        closeModal(`${dom.id}`)
+    });
+}
+
+PPEasy.prototype.createContactMe = function (options){
     let componentOptions = {}
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 20%)/2 - 30px)';
@@ -151,91 +278,31 @@ PpEasy.prototype.createContactMe = function (options){
     let id = guid();
     searchDom.id = id;
     searchDom.innerHTML = ` <div class="ppmodal-line">
-        <textarea required  id="${id}-contact-area"  class="message-area" placeholder="请描述内容（必填）" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"></textarea>
+        <textarea required  id="${id}-contact-area"  class="message-area ${id}-index-0" placeholder="请描述内容（必填）" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"></textarea>
     </div>
     <div class="ppmodal-line">
-        <select  id="${id}-contact-type" class="message-input"  style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}">
+        <select  id="${id}-contact-type" class="message-input  ${id}-index-1"  style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}">
             <option>--业务类别--</option>
         </select>
     </div>
     <div class="ppmodal-line">
-        <input  id="${id}-contact-phone" class="message-input" type="search" placeholder="联系方式（必填）" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+        <input  id="${id}-contact-phone" class="message-input ${id}-index-2" type="search" placeholder="联系方式（必填）" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
     <div class="ppmodal-line">
-        <button id="${id}-contact-button" class="message-button">确定</button>
+        <button id="${id}-contact-button" class="message-button  ${id}-index-3">确定</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
     showModal(id,componentOptions['maskColor']);
-    return searchDom;
+    return new ContactMeComponent(searchDom);
 }
 
-PpEasy.prototype.setContactMeTypes = function (dom, dataList){
-    let searchDomId = dom.id;
-    let conDom = document.getElementById(`${searchDomId}-contact-type`);
-    conDom.innerHTML = '';
-    if (dataList.length>0) {
-        conDom.innerHTML = '';
-        for (let i = 0; i < dataList.length; i++) {
-            let li = document.createElement('option');
-            li.innerHTML = dataList[i];
-            conDom.appendChild(li);
-        }
-    }
-}
 
-PpEasy.prototype.disableContactMeTypes = function (dom){
-    let searchDomId = dom.id;
-    let conDom = document.getElementById(`${searchDomId}-contact-type`);
-    conDom.style.display = 'none';
-}
-
-PpEasy.prototype.setContactMeNumber = function (dom, data){
-    let searchDomId = dom.id;
-    let conDom = document.getElementById(`${searchDomId}-contact-phone`);
-    conDom.value = data;
-}
-
-PpEasy.prototype.disableContactMeNumber = function (dom){
-    let searchDomId = dom.id;
-    let conDom = document.getElementById(`${searchDomId}-contact-phone`);
-    conDom.style.display = 'none';
-}
-
-PpEasy.prototype.setContactMeDescription = function (dom, data){
-    let searchDomId = dom.id;
-    let conDom = document.getElementById(`${searchDomId}-contact-area`);
-    conDom.value = data;
-}
-
-PpEasy.prototype.onSubmit = function (dom, fun){
-    if (dom.className.indexOf("contact")>-1) {
-        let buttonId = `${dom.id}-contact-button`;
-        let buttonDom = document.getElementById(buttonId);
-        buttonDom.addEventListener("click",function () {
-            let desDom = document.getElementById(`${dom.id}-contact-area`);
-            if (!desDom.value) {
-                desDom.setAttribute('placeholder','请输入内容');
-                return
-            }
-            let typeDom = document.getElementById(`${dom.id}-contact-type`);
-
-            let phoneDom = document.getElementById(`${dom.id}-contact-phone`);
-            if (!phoneDom.value) {
-                phoneDom.setAttribute('placeholder','请输入联系方式');
-                return
-            }
-            fun(desDom.value,typeDom.value,phoneDom.value);
-            closeModal(`${dom.id}`)
-        });
-    }else if (dom.className.indexOf("search")>-1) {
-        this.onSearch(dom,fun);
-    }
-
+PPEasy.prototype.onSubmit = function (component, fun){
+    component.onSubmit(fun);
 }
 
 function listCandidates(domId,value){
-    let dom = document.getElementById(domId);
     let conDom = document.getElementById(`${domId}-search-candidates`);
     if (!value) {
         conDom.innerHTML = '';

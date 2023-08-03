@@ -9,11 +9,10 @@
 </head>
 <script>
     window.onload = function () {
-        let ppEasy = new PpEasy();
+        let ppEasy = new PPEasy();
         let contactMe = ppEasy.createContactMe({});
-        ppEasy.setContactMeTypes(contactMe,["-请选择类型-",'业务问题']);
-        // ppEasy.setContactMeNumber(contactMe,"")
-        ppEasy.onSubmit(contactMe,function (des,type,phone) {
+        contactMe.setTypeList(["-请选择类型-",'业务问题']);
+        contactMe.onSubmit(function (des,type,phone) {
             console.log(des)
             console.log(type)
             console.log(phone)
