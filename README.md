@@ -19,7 +19,7 @@
 
 ## 使用参考
 
-1、搜索组件，参考[testcontact.html](demo/testcontact.html)
+1、搜索组件，参考[testsearch.html](demo/testsearch.html)
 
 ![输入图片说明](image/image.png)
 
