@@ -8,7 +8,7 @@
 </div>
 
 <div align="center">
-    <img src='https://gitee.com/huoyo/ppeasy/badge/star.svg'>
+    <img src='https://gitee.com/huoyo/ppslick/badge/star.svg'>
     <img src='https://shields.io/badge/version-1.0.0-green.svg'>
     <img src='https://shields.io/badge/author-Chang Zhang-dbab09.svg'>
 </div>
