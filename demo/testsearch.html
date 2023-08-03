@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../src/ppeasy.js"></script>
+    <script src="../src/ppslick.js"></script>
 
 </head>
 <script>
     window.onload = function () {
-        let ppEasy = new PPEasy();
-        let searcher = ppEasy.createSearcher();
+        let ppSlick = new PPSlick();
+        let searcher = ppSlick.createSearcher();
         searcher.onInput(function (text) {
             /*可以根据输入内容生成下拉提示*/
             console.log(`输入内容：${text}`);

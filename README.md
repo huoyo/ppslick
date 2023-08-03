@@ -1,6 +1,6 @@
 
 <div align="center">
-    <h1 >PPEasy</h1> 
+    <h1 >PPSlick</h1> 
 </div>
 
 <div align="center">
@@ -32,13 +32,13 @@
 ### 引入依赖
 
 ```html
-<script src="../src/ppeasy.js"></script>
+<script src="../src/ppslick.js"></script>
 ```
 
 ### 初始化PPEasy
 
 ```javascript
-let ppEasy = new PPEasy();
+let ppSlick = new PPSlick();
 ```
 
 ### 创建搜索组件
@@ -47,7 +47,7 @@ let ppEasy = new PPEasy();
 
 ```javascript
 //创建一个搜索组件
-let searcher = ppEasy.createSearcher();
+let searcher = ppSlick.createSearcher();
 ```
 
 #### 2.搜索回调函数
@@ -95,7 +95,7 @@ let options = {
     fontSize:'18px',//搜索框字体大小
     fontColor:'#090910'//搜索框字体颜色
 }
-let searcher = ppEasy.createSearcher(options);
+let searcher = ppSlick.createSearcher(options);
 ```
 
 
@@ -105,7 +105,7 @@ let searcher = ppEasy.createSearcher(options);
 
 ```javascript
 //创建一个联系我组件
-let contactMe = ppEasy.createContactMe();
+let contactMe = ppSlick.createContactMe();
 ```
 
 #### 2.提交回调函数
@@ -161,5 +161,5 @@ let options = {
     fontSize:'18px',//搜索框字体大小
     fontColor:'#090910'//搜索框字体颜色
 }
-let searcher = ppEasy.createContactMe(options);
+let searcher = ppSlick.createContactMe(options);
 ```

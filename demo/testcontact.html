@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../src/ppeasy.js"></script>
+    <script src="../src/ppslick.js"></script>
 
 </head>
 <script>
     window.onload = function () {
-        let ppEasy = new PPEasy();
-        let contactMe = ppEasy.createContactMe({});
+        let ppSlick = new PPSlick();
+        let contactMe = ppSlick.createContactMe({});
         contactMe.setTypeList(["-请选择类型-",'业务问题','其他问题']);
         contactMe.onSubmit(function (des,type,phone) {
             console.log(des)

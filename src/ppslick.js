@@ -31,7 +31,7 @@ function closeAllModal() {
     }
 }
 
-function PPEasy() {
+function PPSlick() {
     this.defaultOptions = new Map();
     this.defaultOptions.set('left', 'calc((100% - 30%)/2 - 30px)');
     this.defaultOptions.set('top', '30%');
@@ -59,7 +59,7 @@ function appendStyle() {
 }
 
 
-PPEasy.prototype.createSearcher = function (options) {
+PPSlick.prototype.createSearcher = function (options) {
     let componentOptions = {}
     if (options) {
         componentOptions['left'] = options['left'] || this.defaultOptions.get('left');
@@ -276,7 +276,7 @@ ContactMeComponent.prototype.onSubmit = function (fun) {
     });
 }
 
-PPEasy.prototype.createContactMe = function (options) {
+PPSlick.prototype.createContactMe = function (options) {
     let componentOptions = {}
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 20%)/2 - 30px)';
@@ -321,7 +321,7 @@ PPEasy.prototype.createContactMe = function (options) {
 }
 
 
-PPEasy.prototype.onSubmit = function (component, fun) {
+PPSlick.prototype.onSubmit = function (component, fun) {
     component.onSubmit(fun);
 }
 
