@@ -95,7 +95,11 @@ SearchComponent.prototype.setElement = function (e) {
 SearchComponent.prototype.setAttribute = function (index,property,value) {
     let element = this.getElement();
     let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
-    inputs[0].setAttribute(property,value);
+    if ("html"==property) {
+        inputs[0].innerHTML = value;
+    }else {
+        inputs[0].setAttribute(property,value);
+    }
 }
 
 
@@ -227,7 +231,11 @@ ContactMeComponent.prototype.disableNumber = function (){
 ContactMeComponent.prototype.setAttribute = function (index,property,value) {
     let element = this.getElement();
     let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
-    inputs[0].setAttribute(property,value);
+    if ("html"==property) {
+        inputs[0].innerHTML = value;
+    }else {
+        inputs[0].setAttribute(property,value);
+    }
 }
 
 
