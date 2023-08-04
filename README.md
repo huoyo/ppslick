@@ -14,9 +14,9 @@
 </div>
 
 
-<h4>一个javascript组件库，提供基本的联系我和搜索之类的弹窗组件（无需写html+css），拿来即用</h4>
+<h4>一个javascript组件库，提供基本的联系我、登录和搜索之类的弹窗组件（无需写html+css），拿来即用</h4>
 
-<h4>A lightweight javascript library to create some modal windows without html and css like `contact me`、`search` etc.</h4>
+<h4>A lightweight javascript library to create some modal windows without html and css like `contact me`、`search` and `login` etc.</h4>
 
 
 ## 使用参考
@@ -25,7 +25,9 @@
 
 ![输入图片说明](image/image.png)
 
-2、联系我组件，参考[testcontact.html.html](demo/testcontact.html)
+2、联系我组件，参考[testcontact.html](demo/testcontact.html)
+
+3、登录组件，参考[testlogin.html](demo/testlogin.html)
 
 ![输入图片说明](image/contact.png)
 

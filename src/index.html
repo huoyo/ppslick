@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="ppslick.css"/>
     <script src="ppslick.js"></script>
-
 </head>
 <script>
 
     window.onload = function () {
-        showModal('modal-full')
+       // let pp = PPSlick()
     }
 </script>
 <body>
-<div id="modal-full" class="modal modal-contact" style="">
-    <div class="modal-line">
-        <textarea class="message-area" placeholder="请描述需求"></textarea>
+<div id="modal-full" class="ppmodal ppmodal-login" style="display: block">
+    <h3>登录</h3>
+    <div class="ppmodal-line">
+        <input class="message-input" type="text" placeholder="账号"/>
     </div>
-    <div class="modal-line">
-        <select class="message-input">
-            <option>--业务类别--</option>
-            <option>交流</option>
-            <option>沟通</option>
-        </select>
+    <div class="ppmodal-line">
+        <input class="message-input" type="password" placeholder="密码"/>
     </div>
-    <div class="modal-line">
-        <input class="message-input" type="search" placeholder="联系方式"/>
-    </div>
-    <div class="modal-line">
-        <button class="message-button">确定</button>
+    <div class="ppmodal-line">
+        <button class="confirm-button">登录</button>
+        <span style="width: 50px"></span>
+        <button class="cancel-button">取消</button>
     </div>
 </div>
 </body>

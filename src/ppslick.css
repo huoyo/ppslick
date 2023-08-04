@@ -29,6 +29,11 @@
     left: calc((100% - 20%)/2 - 30px);
 }
 
+.ppmodal-login{
+    width: 15%;
+    left: calc((100% - 15%)/2 - 30px);
+}
+
 .ppmodal-back {
     position: fixed;
     top: 0;
@@ -43,6 +48,7 @@
     display: flex;
     margin-top: 20px;;
 }
+
 .message-button{
     width: 100%;
     height: 45px;
@@ -54,9 +60,44 @@
     color: #f7f7fc;
     cursor: pointer;
 }
+
 .message-button:hover{
     box-shadow: #08051f 1px 1px 1px;
 }
+
+.confirm-button{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #2108dd;
+    background-color: #2108dd;
+    font-size: 18px;
+    font-weight: bold;
+    color: #f7f7fc;
+    cursor: pointer;
+}
+
+.confirm-button:hover{
+    box-shadow: #08051f 1px 1px 1px;
+}
+
+
+.cancel-button{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #eeedeb;
+    background-color: #eeedeb;
+    font-size: 18px;
+    font-weight: bold;
+    color: #030341;
+    cursor: pointer;
+}
+
+.cancel-button:hover{
+    box-shadow: #eeedeb 1px 1px 1px;
+}
+
 
 
 .message-input{
