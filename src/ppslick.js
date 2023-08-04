@@ -58,7 +58,6 @@ function appendStyle() {
     }
 }
 
-
 PPSlick.prototype.createSearcher = function (options) {
     let componentOptions = {}
     if (options) {
@@ -96,18 +95,19 @@ PPSlick.prototype.createSearcher = function (options) {
     return new SearchComponent(searchDom);
 }
 
-function SearchComponent(e) {
+function PPComponent(e) {
     this.element = e;
 }
 
-SearchComponent.prototype.getElement = function () {
+PPComponent.prototype.getElement = function () {
     return this.element;
 }
-SearchComponent.prototype.setElement = function (e) {
+
+PPComponent.prototype.setElement = function (e) {
     this.element = e;
 }
 
-SearchComponent.prototype.setAttribute = function (index, property, value) {
+PPComponent.prototype.setAttribute = function (index, property, value) {
     let element = this.getElement();
     let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
     if ("html" == property) {
@@ -117,6 +117,11 @@ SearchComponent.prototype.setAttribute = function (index, property, value) {
     }
 }
 
+function SearchComponent(e) {
+    this.element = e;
+}
+
+SearchComponent.prototype = new PPComponent()
 
 SearchComponent.prototype.onSearch = function (fun) {
     let dom = this.getElement();
@@ -184,13 +189,8 @@ function ContactMeComponent(e) {
     this.element = e;
 }
 
-ContactMeComponent.prototype.getElement = function () {
-    return this.element;
-}
+ContactMeComponent.prototype = new PPComponent();
 
-ContactMeComponent.prototype.setElement = function (e) {
-    this.element = e;
-}
 
 ContactMeComponent.prototype.setDescription = function (text) {
     let element = this.getElement();
@@ -218,7 +218,6 @@ ContactMeComponent.prototype.setTypeList = function (dataList) {
     }
 }
 
-
 ContactMeComponent.prototype.disableType = function () {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-contact-type`);
@@ -242,17 +241,6 @@ ContactMeComponent.prototype.disableNumber = function () {
     let conDom = document.getElementById(`${searchDomId}-contact-phone`);
     conDom.style.display = 'none';
 }
-
-ContactMeComponent.prototype.setAttribute = function (index, property, value) {
-    let element = this.getElement();
-    let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
-    if ("html" == property) {
-        inputs[0].innerHTML = value;
-    } else {
-        inputs[0].setAttribute(property, value);
-    }
-}
-
 
 ContactMeComponent.prototype.onSubmit = function (fun) {
     let dom = this.getElement();
@@ -319,7 +307,6 @@ PPSlick.prototype.createContactMe = function (options) {
     showModal(id, componentOptions['maskColor']);
     return new ContactMeComponent(searchDom);
 }
-
 
 PPSlick.prototype.onSubmit = function (component, fun) {
     component.onSubmit(fun);
