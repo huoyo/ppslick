@@ -35,9 +35,6 @@
 
 ![输入图片说明](image/login2.png)
 
-4、注册组件，参考[testsignup.html](demo/testsignup.html)
-
-![输入图片说明](image/signup.png)
 
 ## 教程
 
@@ -315,4 +312,55 @@ let options = {
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let searcher = ppSlick.createVerificationCodeLogin(options);
+```
+
+
+
+### 创建注册组件
+
+#### 1.创建组件
+
+```javascript
+//创建一个联系我组件
+let signup = ppSlick.createNormalSignup();
+```
+
+#### 2.获取验证码
+
+```javascript
+//点击获取验证码按钮时触发
+login.onGetVerificationCode(function (userName) {
+    console.log(`账号：${userName}`);
+})
+```
+
+#### 3.提交回调函数
+
+```javascript
+//提交回调函数
+login.onSubmit(function (userName,code) {
+    console.log(`账号：${userName}`);
+    console.log(`验证码：${code}`);
+})
+```
+
+
+
+### 创建注册组件
+
+#### 1.创建组件
+
+```javascript
+//创建注册组件
+let signup = ppSlick.createNormalSignup();
+```
+
+#### 2.提交回调函数
+
+```javascript
+//提交回调函数
+signup.onSubmit(function (userName,password) {
+    console.log(`账号：${userName}`);
+    console.log(`密码：${password}`);
+})
 ```
