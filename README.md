@@ -4,7 +4,7 @@
 </div>
 
 <div align="center">
-    <h2>个人和初始团队网站基础弹窗组件库</h2> 
+    <h2>为个人和初始团队提供网站的基础弹窗组件</h2> 
 </div>
 
 <div align="center">
