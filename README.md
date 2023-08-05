@@ -110,7 +110,7 @@ let searcher = ppSlick.createSearcher(options);
 ```
 
 
-#### 创建联系我组件
+#### 2.创建联系我组件
 
 ##### 2.1.创建组件
 
