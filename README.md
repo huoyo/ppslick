@@ -244,5 +244,70 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let searcher = ppSlick.createContactMe(options);
+let searcher = ppSlick.createNormalLogin(options);
+```
+
+### 创建验证码登录组件
+
+#### 1.创建组件
+
+```javascript
+//创建一个联系我组件
+let login = ppSlick.createVerificationCodeLogin();
+```
+
+#### 2.获取验证码
+
+```javascript
+//点击获取验证码按钮时触发
+login.onGetVerificationCode(function (userName) {
+    console.log(`账号：${userName}`);
+})
+```
+
+#### 3.提交回调函数
+
+```javascript
+//提交回调函数
+login.onSubmit(function (userName,code) {
+    console.log(`账号：${userName}`);
+    console.log(`验证码：${code}`);
+})
+```
+
+#### 4.设置其他属性
+
+```javascript
+//设置标题
+login.setTitle('登录')
+//或者
+// login.setAttribute(0,'html','登录')
+
+//设置账号提示
+login.setUserNamePlaceholder('请输入账号')
+//或者
+// login.setAttribute(1,'placeholder','请输入账号')
+
+//填写验证码
+login.setVerification('请记住我')
+//更改获取验证码按钮的内容
+login.setVerificationButtonLabel('获取验证码')
+//验证码框的提示
+login.setVerificationPlaceholder('验证码')
+```
+
+#### 5.设置初始属性
+
+```javascript
+let options = {
+    left:'20%',//组件距离左边的位置
+    top:'20%',//组件距离上边的位置
+    width:'300px',//组件宽度
+    maskColor:'rgba(0, 0, 0, 0.5)',//遮罩层颜色
+    backgroundColor:'white',//组件背景颜色
+    fontSize:'18px',//搜索框字体大小
+    fontColor:'#090910',//搜索框字体颜色
+    closeOnSubmit:'true'//提交后自动关闭该窗口
+}
+let searcher = ppSlick.createVerificationCodeLogin(options);
 ```

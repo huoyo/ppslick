@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/ppslick.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let ppSlick = new PPSlick();
+        let login = ppSlick.createVerificationCodeLogin({closeOnSubmit:'true'});
+        //点击获取验证码按钮时触发
+        login.onGetVerificationCode(function (userName) {
+            console.log(`账号：${userName}`);
+        })
+        //点击登录时触发
+        login.onSubmit(function (userName,code) {
+            console.log(`账号：${userName}`);
+            console.log(`验证码：${code}`);
+        })
+
+
+    }
+</script>
+<body>
+
+</body>
+</html>
