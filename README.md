@@ -31,6 +31,8 @@
 
 3、登录组件，参考[testlogin.html](demo/testlogin.html)
 
+![输入图片说明](image/login.png)
+
 
 ## 教程
 
