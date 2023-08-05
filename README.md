@@ -100,7 +100,8 @@ let options = {
     maskColor:'rgba(0, 0, 0, 0.5)',//遮罩层颜色
     backgroundColor:'white',//组件背景颜色
     fontSize:'18px',//搜索框字体大小
-    fontColor:'#090910'//搜索框字体颜色
+    fontColor:'#090910',//搜索框字体颜色
+    closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let searcher = ppSlick.createSearcher(options);
 ```
@@ -166,7 +167,8 @@ let options = {
     maskColor:'rgba(0, 0, 0, 0.5)',//遮罩层颜色
     backgroundColor:'white',//组件背景颜色
     fontSize:'18px',//搜索框字体大小
-    fontColor:'#090910'//搜索框字体颜色
+    fontColor:'#090910',//搜索框字体颜色
+    closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let searcher = ppSlick.createContactMe(options);
 ```
@@ -179,7 +181,7 @@ let searcher = ppSlick.createContactMe(options);
 
 ```javascript
 //创建一个联系我组件
-let login = ppSlick.createSimpleLogin();
+let login = ppSlick.createNormalLogin();
 ```
 
 #### 2.提交回调函数
@@ -239,7 +241,8 @@ let options = {
     maskColor:'rgba(0, 0, 0, 0.5)',//遮罩层颜色
     backgroundColor:'white',//组件背景颜色
     fontSize:'18px',//搜索框字体大小
-    fontColor:'#090910'//搜索框字体颜色
+    fontColor:'#090910',//搜索框字体颜色
+    closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let searcher = ppSlick.createContactMe(options);
 ```

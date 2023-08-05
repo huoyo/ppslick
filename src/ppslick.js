@@ -1,5 +1,5 @@
-function showModal(id, maskColor) {
-    closeAllModal();
+function showPPModal(id, maskColor) {
+    closeAllPPModal();
     let model = document.querySelector(`#${id}`);
     model.style.display = 'block';
     let back = document.createElement("div");
@@ -11,13 +11,13 @@ function showModal(id, maskColor) {
     document.querySelector("body").appendChild(back);
 }
 
-function closeModal(id) {
+function closePPModal(id) {
     let model = document.querySelector(`#${id}`);
     model.style.display = 'none';
     document.querySelector(".ppmodal-back").remove();
 }
 
-function closeAllModal() {
+function closeAllPPModal() {
     let modals = document.querySelectorAll(".ppmodal");
     if (!modals) {
         return
@@ -41,6 +41,7 @@ function PPSlick() {
     this.defaultOptions.set('backgroundColor', 'white');
     this.defaultOptions.set('fontColor', '#090910');
     this.defaultOptions.set('fontSize', '18px');
+    this.defaultOptions.set('closeOnSubmit', 'true');
     appendStyle();
 }
 
@@ -58,6 +59,44 @@ function appendStyle() {
     }
 }
 
+function PPComponent(e) {
+    this.element = e;
+    this.options = {};
+}
+
+PPComponent.prototype.getElement = function () {
+    return this.element;
+}
+
+PPComponent.prototype.getOptions = function () {
+    return this.options;
+}
+
+PPComponent.prototype.setElement = function (e) {
+    this.element = e;
+}
+
+PPComponent.prototype.close = function () {
+    closePPModal(`${this.getElement().id}`);
+}
+
+PPComponent.prototype.setAttribute = function (index, property, value) {
+    let element = this.getElement();
+    let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
+    if ("html" == property) {
+        inputs[0].innerHTML = value;
+    } else {
+        inputs[0].setAttribute(property, value);
+    }
+}
+
+function SearchComponent(e) {
+    this.element = e;
+    this.options = {};
+}
+
+SearchComponent.prototype = new PPComponent()
+
 PPSlick.prototype.createSearcher = function (options) {
     let componentOptions = {}
     if (options) {
@@ -69,6 +108,7 @@ PPSlick.prototype.createSearcher = function (options) {
         componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
         componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
         componentOptions['fontSize'] = options['fontSize'] || this.defaultOptions.get('fontSize');
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
     } else {
         this.defaultOptions.forEach(function (v, k) {
             componentOptions[k] = v;
@@ -91,40 +131,15 @@ PPSlick.prototype.createSearcher = function (options) {
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
-    showModal(id, componentOptions['maskColor']);
-    return new SearchComponent(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new SearchComponent(searchDom);
+    com.options = componentOptions;
+    return com;
 }
-
-function PPComponent(e) {
-    this.element = e;
-}
-
-PPComponent.prototype.getElement = function () {
-    return this.element;
-}
-
-PPComponent.prototype.setElement = function (e) {
-    this.element = e;
-}
-
-PPComponent.prototype.setAttribute = function (index, property, value) {
-    let element = this.getElement();
-    let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
-    if ("html" == property) {
-        inputs[0].innerHTML = value;
-    } else {
-        inputs[0].setAttribute(property, value);
-    }
-}
-
-function SearchComponent(e) {
-    this.element = e;
-}
-
-SearchComponent.prototype = new PPComponent()
 
 SearchComponent.prototype.onSearch = function (fun) {
     let dom = this.getElement();
+    let options = this.getOptions();
     dom.onkeydown = function (e) {
         if (e.keyCode == 13) {
             let input = document.getElementById(`${dom.id}-search-input`);
@@ -132,7 +147,9 @@ SearchComponent.prototype.onSearch = function (fun) {
             if (searchText) {
                 fun(searchText);
                 input.value = '';
-                closeModal(`${dom.id}`)
+                if (options['closeOnSubmit']=='true') {
+                    closePPModal(`${dom.id}`);
+                }
             } else {
                 input.setAttribute('placeholder', '请输入搜索内容');
             }
@@ -187,6 +204,7 @@ SearchComponent.prototype.setValue = function (text) {
 
 function ContactMeComponent(e) {
     this.element = e;
+    this.options = {};
 }
 
 ContactMeComponent.prototype = new PPComponent();
@@ -244,6 +262,7 @@ ContactMeComponent.prototype.disableNumber = function () {
 
 ContactMeComponent.prototype.onSubmit = function (fun) {
     let dom = this.getElement();
+    let options = this.getOptions();
     let buttonId = `${dom.id}-contact-button`;
     let buttonDom = document.getElementById(buttonId);
     buttonDom.addEventListener("click", function () {
@@ -260,7 +279,9 @@ ContactMeComponent.prototype.onSubmit = function (fun) {
             return
         }
         fun(desDom.value, typeDom.value, phoneDom.value);
-        closeModal(`${dom.id}`)
+        if (options['closeOnSubmit']=='true') {
+            closePPModal(`${dom.id}`);
+        }
     });
 }
 
@@ -275,6 +296,7 @@ PPSlick.prototype.createContactMe = function (options) {
         componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
         componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
         componentOptions['fontSize'] = options['fontSize'] || '16px';
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
     } else {
         this.defaultOptions.forEach(function (v, k) {
             if (k=='width') {
@@ -308,17 +330,20 @@ PPSlick.prototype.createContactMe = function (options) {
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
-    showModal(id, componentOptions['maskColor']);
-    return new ContactMeComponent(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new ContactMeComponent(searchDom);
+    com.options = componentOptions;
+    return com;
 }
 
-function LoginComponent(e) {
+function SimpleLoginComponent(e) {
     this.element = e;
+    this.options = {};
 }
 
-LoginComponent.prototype = new PPComponent();
+SimpleLoginComponent.prototype = new PPComponent();
 
-PPSlick.prototype.createSimpleLogin = function (options) {
+PPSlick.prototype.createNormalLogin = function (options) {
     let componentOptions = {}
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
@@ -329,6 +354,7 @@ PPSlick.prototype.createSimpleLogin = function (options) {
         componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
         componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
         componentOptions['fontSize'] = options['fontSize'] || '16px';
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
     } else {
         this.defaultOptions.forEach(function (v, k) {
             if (k=='width') {
@@ -360,83 +386,86 @@ PPSlick.prototype.createSimpleLogin = function (options) {
     <div class="ppmodal-line">
         <button id="${id}-login-confirm" class="confirm-button ${id}-index-5">登录</button>
         <span style="width: 50px"></span>
-        <button class="cancel-button  ${id}-index-6" onclick="closeModal('${id}')">取消</button>
+        <button class="cancel-button  ${id}-index-6" onclick="closePPModal('${id}')">取消</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
-    showModal(id, componentOptions['maskColor']);
-    return new LoginComponent(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new SimpleLoginComponent(searchDom);
+    com.options = componentOptions;
+    return com;
 }
 
-LoginComponent.prototype.setTitle = function (data) {
+SimpleLoginComponent.prototype.setTitle = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-title`);
     conDom.innerHTML = data;
 }
 
-LoginComponent.prototype.setUserName = function (data) {
+SimpleLoginComponent.prototype.setUserName = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-userName`);
     conDom.value = data;
 }
 
-LoginComponent.prototype.setUserNamePlaceholder = function (data) {
+SimpleLoginComponent.prototype.setUserNamePlaceholder = function (data) {
     this.setAttribute(1,'placeholder',data)
 }
 
-LoginComponent.prototype.setPassword = function (data) {
+SimpleLoginComponent.prototype.setPassword = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-password`);
     conDom.value = data;
 }
 
-LoginComponent.prototype.setPasswordPlaceholder = function (data) {
+SimpleLoginComponent.prototype.setPasswordPlaceholder = function (data) {
     this.setAttribute(2,'placeholder',data)
 }
 
-LoginComponent.prototype.setRememberMe= function () {
+SimpleLoginComponent.prototype.setRememberMe= function () {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-rememberme`);
     conDom.checked = 'true';
 }
 
-LoginComponent.prototype.disableRememberMe= function () {
+SimpleLoginComponent.prototype.disableRememberMe= function () {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-rememberme-div`);
     conDom.style.display = 'none';
 }
 
-LoginComponent.prototype.setRememberMeLabel= function (data) {
+SimpleLoginComponent.prototype.setRememberMeLabel= function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-remembermelable`);
     conDom.innerHTML = data;
 }
 
-LoginComponent.prototype.setForgetPasswordLabel= function (data) {
+SimpleLoginComponent.prototype.setForgetPasswordLabel= function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-forget`);
     conDom.innerHTML = data;
 }
 
-LoginComponent.prototype.disableForgetPassword= function (data) {
+SimpleLoginComponent.prototype.disableForgetPassword= function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-forget-div`);
     conDom.style.display = 'none';
 }
 
-LoginComponent.prototype.onForgetPassword = function (fun) {
+SimpleLoginComponent.prototype.onForgetPassword = function (fun) {
     let dom = this.getElement();
     let buttonId = `${dom.id}-login-forget`;
     let buttonDom = document.getElementById(buttonId);
     buttonDom.addEventListener("click", function () {
         let userDom = document.getElementById(`${dom.id}-login-userName`);
         fun(userDom.value);
-        closeModal(`${dom.id}`)
+        closePPModal(`${dom.id}`)
     });
 }
 
-LoginComponent.prototype.onLogin = function (fun) {
+SimpleLoginComponent.prototype.onLogin = function (fun) {
     let dom = this.getElement();
+    let options = this.getOptions();
     let buttonId = `${dom.id}-login-confirm`;
     let buttonDom = document.getElementById(buttonId);
     buttonDom.addEventListener("click", function () {
@@ -453,14 +482,143 @@ LoginComponent.prototype.onLogin = function (fun) {
         }
         let reDom = document.getElementById(`${dom.id}-login-rememberme`);
         fun(userDom.value, psDom.value,reDom.checked);
-        closeModal(`${dom.id}`)
+        if (options['closeOnSubmit']=='true') {
+            closePPModal(`${dom.id}`);
+        }
     });
 }
 
-
-LoginComponent.prototype.onSubmit = function (fun) {
+SimpleLoginComponent.prototype.onSubmit = function (fun) {
     this.onLogin(fun);
 }
+
+function VerificationCodeLoginComponent(e) {
+    this.element = e;
+}
+
+VerificationCodeLoginComponent.prototype = new PPComponent();
+
+PPSlick.prototype.createVerificationCodeLogin = function (options) {
+    let componentOptions = {}
+    if (options) {
+        componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
+        componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
+        componentOptions['width'] = options['width'] || '15%';
+        componentOptions['placeholder'] = options['placeholder'] || this.defaultOptions.get('placeholder');
+        componentOptions['maskColor'] = options['maskColor'] || this.defaultOptions.get('maskColor');
+        componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
+        componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
+        componentOptions['fontSize'] = options['fontSize'] || '16px';
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
+    } else {
+        this.defaultOptions.forEach(function (v, k) {
+            if (k=='width') {
+                componentOptions[k] = '15%';
+            }else {
+                componentOptions[k] = v;
+            }
+        })
+    }
+    let searchDom = document.createElement('div');
+    searchDom.className = 'ppmodal ppmodal-login';
+    searchDom.style.background = `${componentOptions['backgroundColor']}`;
+    searchDom.style.left = `${componentOptions['left']}`;
+    searchDom.style.top = `${componentOptions['top']}`;
+    searchDom.style.width = `${componentOptions['width']}`;
+    let id = guid();
+    searchDom.id = id;
+    searchDom.innerHTML = `<h3 id="${id}-login-title" class="${id}-index-0">登录</h3>
+    <div class="ppmodal-line">
+        <input id="${id}-login-userName" class="message-input  ${id}-index-1" type="text" placeholder="账号" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+    <div class="ppmodal-line">
+      <input id="${id}-login-verification" style="width: 60%;border-radius: 5px 0 0 5px" class="message-input ${id}-index-2" type="password" placeholder="验证码"/>
+       <button id="${id}-login-veributton" style="width: 40%;border-radius: 0 5px 5px 0;background-color: #69788a;border: 1px solid #69788a;box-shadow: none" class="confirm-button ${id}-index-3">获取验证码</button>
+    </div>
+    <div class="ppmodal-line">
+        <button id="${id}-login-confirm" class="confirm-button ${id}-index-4">登录</button>
+        <span style="width: 50px"></span>
+        <button class="cancel-button  ${id}-index-5" onclick="closePPModal('${id}')">取消</button>
+    </div>`;
+    let body = document.getElementsByTagName('body')[0];
+    body.appendChild(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new VerificationCodeLoginComponent(searchDom);
+    com.options = componentOptions;
+    return com;
+}
+
+VerificationCodeLoginComponent.prototype.setTitle = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-title`);
+    conDom.innerHTML = data;
+}
+
+VerificationCodeLoginComponent.prototype.setUserName = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-userName`);
+    conDom.value = data;
+}
+
+VerificationCodeLoginComponent.prototype.setUserNamePlaceholder = function (data) {
+    this.setAttribute(1,'placeholder',data)
+}
+
+VerificationCodeLoginComponent.prototype.setVerification = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-verification`);
+    conDom.value = data;
+}
+
+VerificationCodeLoginComponent.prototype.setVerificationPlaceholder = function (data) {
+    this.setAttribute(2,'placeholder',data)
+}
+
+VerificationCodeLoginComponent.prototype.setVerificationButtonLabel = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-veributton`);
+    conDom.innerHTML = data;
+}
+
+VerificationCodeLoginComponent.prototype.onGetVerificationCode = function (fun) {
+    let dom = this.getElement();
+    let buttonId = `${dom.id}-login-veributton`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click", function () {
+        let userDom = document.getElementById(`${dom.id}-login-userName`);
+        fun(userDom.value);
+    });
+}
+
+VerificationCodeLoginComponent.prototype.onLogin = function (fun) {
+    let dom = this.getElement();
+    let options = this.getOptions();
+    let buttonId = `${dom.id}-login-confirm`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click", function () {
+        let userDom = document.getElementById(`${dom.id}-login-userName`);
+        if (!userDom.value) {
+            userDom.setAttribute('placeholder', '请输入账号');
+            return
+        }
+
+        let psDom = document.getElementById(`${dom.id}-login-verification`);
+        if (!psDom.value) {
+            psDom.setAttribute('placeholder', '请输入验证码');
+            return
+        }
+        fun(userDom.value, psDom.value);
+        if (options['closeOnSubmit']=='true') {
+            closePPModal(`${dom.id}`);
+        }
+    });
+}
+
+VerificationCodeLoginComponent.prototype.onSubmit = function (fun) {
+   this.onLogin(fun);
+}
+
+
 
 PPSlick.prototype.onSubmit = function (component, fun) {
     component.onSubmit(fun);

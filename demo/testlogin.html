@@ -9,9 +9,7 @@
 <script>
     window.onload = function () {
         let ppSlick = new PPSlick();
-        let login = ppSlick.createSimpleLogin();
-        login.setForgetPasswordLabel('忘记密码')
-        login.setAttribute(1,'placeholder','请输入账号')
+        let login = ppSlick.createNormalLogin({closeOnSubmit:'true'});
         //设置记住我标签
         // login.setRememberMeLabel("记住我")
         //禁用记住我
