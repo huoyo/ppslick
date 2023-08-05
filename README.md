@@ -38,28 +38,29 @@
 
 ## 教程
 
-### 引入依赖
+### 一、引入依赖
 
 ```html
 <script src="../src/ppslick.js"></script>
 ```
 
-### 初始化PPEasy
+### 二、初始化PPSlick
 
 ```javascript
 let ppSlick = new PPSlick();
 ```
+### 三、创建组件
 
-### 创建搜索组件
+#### 1.创建搜索组件
 
-#### 1.创建组件
+#### 1.1.创建组件
 
 ```javascript
 //创建一个搜索组件
 let searcher = ppSlick.createSearcher();
 ```
 
-#### 2.搜索回调函数
+##### 1.2.搜索回调函数
 
 ```javascript
 //回车回调函数
@@ -69,7 +70,7 @@ searcher.onSubmit(function (text) {
 })
 ```
 
-#### 3.搜索提示
+##### 1.3.搜索提示
 
 如果需要提示，可以进行
 
@@ -82,7 +83,7 @@ searcher.onInput(function (text) {
 })
 ```
 
-#### 4.设置内容
+##### 1.4.设置内容
 
 ```javascript
 //设置placeholder
@@ -91,7 +92,7 @@ searcher.setPlaceholder("输入搜索内容，回车搜索");
 searcher.setValue("xxxxx");
 ```
 
-#### 5.设置初始属性
+##### 1.5.设置初始属性
 
 ```javascript
 let options = {
@@ -109,16 +110,16 @@ let searcher = ppSlick.createSearcher(options);
 ```
 
 
-### 创建联系我组件
+#### 创建联系我组件
 
-#### 1.创建组件
+##### 2.1.创建组件
 
 ```javascript
 //创建一个联系我组件
 let contactMe = ppSlick.createContactMe();
 ```
 
-#### 2.提交回调函数
+##### 2.2.提交回调函数
 
 ```javascript
 //提交回调函数
@@ -130,13 +131,13 @@ contactMe.onSubmit(function (des,type,phone) {
 })
 ```
 
-#### 3.设置业务类型
+##### 2.3.设置业务类型
 
 ```javascript
 contactMe.setTypeList(["-请选择类型-",'业务问题','其他问题']);
 ```
 
-#### 4.设置其他属性
+##### 2.4.设置其他属性
 
 ```javascript
 //联系我有三个小组件，分别为描述内容、业务类型、联系方式和提交按钮
@@ -150,7 +151,7 @@ contactMe.setAttribute(2,'value','1599999999')
 contactMe.setAttribute(3,'html','提交')
 ```
 
-#### 5.屏蔽小组件
+##### 2.5.屏蔽小组件
 
 ```javascript
 //如果不需要业务类型
@@ -159,7 +160,7 @@ contactMe.disableType();
 contactMe.disableNumber();
 ```
 
-#### 6.设置初始属性
+##### 2.6.设置初始属性
 
 ```javascript
 let options = {
@@ -177,16 +178,16 @@ let searcher = ppSlick.createContactMe(options);
 
 
 
-### 创建登录组件
+#### 3.创建登录组件
 
-#### 1.创建组件
+##### 3.1.创建组件
 
 ```javascript
 //创建一个联系我组件
 let login = ppSlick.createNormalLogin();
 ```
 
-#### 2.提交回调函数
+##### 3.2.提交回调函数
 
 ```javascript
 //提交回调函数
@@ -197,7 +198,7 @@ login.onSubmit(function (userName,password,isRememberme) {
 })
 ```
 
-#### 3.设置其他属性
+##### 3.3.设置其他属性
 
 ```javascript
 //设置标题
@@ -216,7 +217,7 @@ login.setRememberMeLabel('请记住我')
 login.setForgetPasswordLabel('忘记了密码')
 ```
 
-#### 4.忘记密码回调函数
+##### 3.4.忘记密码回调函数
 
 ```javascript
 login.onForgetPassword(function (user) {
@@ -224,7 +225,7 @@ login.onForgetPassword(function (user) {
 })
 ```
 
-#### 4.屏蔽小组件
+##### 3.4.屏蔽小组件
 
 ```javascript
 //禁用忘记密码
@@ -233,7 +234,7 @@ login.disableForgetPassword();
 login.disableRememberMe();
 ```
 
-#### 5.设置初始属性
+##### 3.5.设置初始属性
 
 ```javascript
 let options = {
@@ -249,16 +250,16 @@ let options = {
 let searcher = ppSlick.createNormalLogin(options);
 ```
 
-### 创建验证码登录组件
+#### 4.创建验证码登录组件
 
-#### 1.创建组件
+##### 4.1.创建组件
 
 ```javascript
 //创建一个联系我组件
 let login = ppSlick.createVerificationCodeLogin();
 ```
 
-#### 2.获取验证码
+##### 4.2.获取验证码
 
 ```javascript
 //点击获取验证码按钮时触发
@@ -267,7 +268,7 @@ login.onGetVerificationCode(function (userName) {
 })
 ```
 
-#### 3.提交回调函数
+##### 4.3.提交回调函数
 
 ```javascript
 //提交回调函数
@@ -277,7 +278,7 @@ login.onSubmit(function (userName,code) {
 })
 ```
 
-#### 4.设置其他属性
+##### 4.4.设置其他属性
 
 ```javascript
 //设置标题
@@ -298,7 +299,7 @@ login.setVerificationButtonLabel('获取验证码')
 login.setVerificationPlaceholder('验证码')
 ```
 
-#### 5.设置初始属性
+##### 4.5.设置初始属性
 
 ```javascript
 let options = {
@@ -315,47 +316,16 @@ let searcher = ppSlick.createVerificationCodeLogin(options);
 ```
 
 
+#### 5.创建注册组件
 
-### 创建注册组件
-
-#### 1.创建组件
-
-```javascript
-//创建一个联系我组件
-let signup = ppSlick.createNormalSignup();
-```
-
-#### 2.获取验证码
-
-```javascript
-//点击获取验证码按钮时触发
-login.onGetVerificationCode(function (userName) {
-    console.log(`账号：${userName}`);
-})
-```
-
-#### 3.提交回调函数
-
-```javascript
-//提交回调函数
-login.onSubmit(function (userName,code) {
-    console.log(`账号：${userName}`);
-    console.log(`验证码：${code}`);
-})
-```
-
-
-
-### 创建注册组件
-
-#### 1.创建组件
+##### 5.1.创建组件
 
 ```javascript
 //创建注册组件
 let signup = ppSlick.createNormalSignup();
 ```
 
-#### 2.提交回调函数
+##### 5.2.提交回调函数
 
 ```javascript
 //提交回调函数
