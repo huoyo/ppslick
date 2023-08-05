@@ -10,11 +10,23 @@
     window.onload = function () {
         let ppSlick = new PPSlick();
         let login = ppSlick.createSimpleLogin();
-        login.onSubmit(function (userName,password) {
-            /*可以根据输入内容生成下拉提示*/
+        //设置记住我标签
+        // login.setRememberMeLabel("记住我")
+        //禁用记住我
+        // login.disableRememberMe();
+        //设置忘记密码标签
+        // login.setForgetPasswordLabel("忘记密码")
+        //禁用忘记密码
+        // login.disableForgetPassword();
+        login.onSubmit(function (userName,password,isRememberme) {
             console.log(`账号：${userName}`);
             console.log(`密码：${password}`);
+            console.log(`是否记住我：${isRememberme}`);
         })
+        //点击忘记密码触发
+        // login.onForgetPassword(function (user) {
+        //     console.log(`忘记密码：${user}`);
+        // })
 
     }
 </script>

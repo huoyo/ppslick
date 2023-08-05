@@ -353,10 +353,14 @@ PPSlick.prototype.createSimpleLogin = function (options) {
     <div class="ppmodal-line">
         <input id="${id}-login-password" class="message-input  ${id}-index-2" type="password" placeholder="密码" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
+      <div class="ppmodal-line">
+        <div id="${id}-login-rememberme-div" style="width: 100%"><input id="${id}-login-rememberme" class="${id}-index-3" type="checkbox" placeholder=""/><span id="${id}-login-remembermelable">记住我</span></div>
+        <div id="${id}-login-forget-div"  style="width: 100%"><a id="${id}-login-forget" href="#" class="${id}-index-4">忘记密码</a></div>
+    </div>
     <div class="ppmodal-line">
-        <button id="${id}-login-confirm" class="confirm-button ${id}-index-3">登录</button>
+        <button id="${id}-login-confirm" class="confirm-button ${id}-index-5">登录</button>
         <span style="width: 50px"></span>
-        <button class="cancel-button  ${id}-index-4" onclick="closeModal('${id}')">取消</button>
+        <button class="cancel-button  ${id}-index-6" onclick="closeModal('${id}')">取消</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
@@ -390,6 +394,47 @@ LoginComponent.prototype.setPasswordPlaceholder = function (data) {
     this.setAttribute(2,'placeholder',data)
 }
 
+LoginComponent.prototype.setRememberMe= function () {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-rememberme`);
+    conDom.checked = 'true';
+}
+
+LoginComponent.prototype.disableRememberMe= function () {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-rememberme-div`);
+    conDom.style.display = 'none';
+}
+
+LoginComponent.prototype.setRememberMeLabel= function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-remembermelable`);
+    conDom.innerHTML = data;
+}
+
+LoginComponent.prototype.setForgetPasswordLabel= function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-forget`);
+    conDom.innerHTML = data;
+}
+
+LoginComponent.prototype.disableForgetPassword= function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-login-forget-div`);
+    conDom.style.display = 'none';
+}
+
+LoginComponent.prototype.onForgetPassword = function (fun) {
+    let dom = this.getElement();
+    let buttonId = `${dom.id}-login-forget`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click", function () {
+        let userDom = document.getElementById(`${dom.id}-login-userName`);
+        fun(userDom.value);
+        closeModal(`${dom.id}`)
+    });
+}
+
 LoginComponent.prototype.onLogin = function (fun) {
     let dom = this.getElement();
     let buttonId = `${dom.id}-login-confirm`;
@@ -406,7 +451,8 @@ LoginComponent.prototype.onLogin = function (fun) {
             psDom.setAttribute('placeholder', '请输入密码');
             return
         }
-        fun(userDom.value, psDom.value);
+        let reDom = document.getElementById(`${dom.id}-login-rememberme`);
+        fun(userDom.value, psDom.value,reDom.checked);
         closeModal(`${dom.id}`)
     });
 }
