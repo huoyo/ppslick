@@ -619,6 +619,139 @@ VerificationCodeLoginComponent.prototype.onSubmit = function (fun) {
 }
 
 
+function NormalSignupComponent(e) {
+    this.element = e;
+    this.options = {};
+}
+
+NormalSignupComponent.prototype = new PPComponent();
+
+PPSlick.prototype.createNormalSignup = function (options) {
+    let componentOptions = {}
+    if (options) {
+        componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
+        componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
+        componentOptions['width'] = options['width'] || '15%';
+        componentOptions['placeholder'] = options['placeholder'] || this.defaultOptions.get('placeholder');
+        componentOptions['maskColor'] = options['maskColor'] || this.defaultOptions.get('maskColor');
+        componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
+        componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
+        componentOptions['fontSize'] = options['fontSize'] || '16px';
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
+    } else {
+        this.defaultOptions.forEach(function (v, k) {
+            if (k=='width') {
+                componentOptions[k] = '15%';
+            }else {
+                componentOptions[k] = v;
+            }
+        })
+    }
+    let searchDom = document.createElement('div');
+    searchDom.className = 'ppmodal ppmodal-login';
+    searchDom.style.background = `${componentOptions['backgroundColor']}`;
+    searchDom.style.left = `${componentOptions['left']}`;
+    searchDom.style.top = `${componentOptions['top']}`;
+    searchDom.style.width = `${componentOptions['width']}`;
+    let id = guid();
+    searchDom.id = id;
+    searchDom.innerHTML = `<h3 id="${id}-login-title" class="${id}-index-0">注册</h3>
+    <div class="ppmodal-line">
+        <input id="${id}-signup-userName" class="message-input  ${id}-index-1" type="text" placeholder="账号" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+    <div class="ppmodal-line">
+        <input id="${id}-signup-password" class="message-input  ${id}-index-2" type="password" placeholder="密码" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+      <div class="ppmodal-line">
+         <input id="${id}-signup-repassword" class="message-input  ${id}-index-3" type="password" placeholder="确认密码" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+    <div class="ppmodal-line">
+        <button id="${id}-signup-confirm" class="confirm-button ${id}-index-4">注册</button>
+        <span style="width: 50px"></span>
+        <button class="cancel-button  ${id}-index-5" onclick="closePPModal('${id}')">取消</button>
+    </div>`;
+    let body = document.getElementsByTagName('body')[0];
+    body.appendChild(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new NormalSignupComponent(searchDom);
+    com.options = componentOptions;
+    return com;
+}
+
+NormalSignupComponent.prototype.setTitle = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-signup-title`);
+    conDom.innerHTML = data;
+}
+
+NormalSignupComponent.prototype.setUserName = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-signup-userName`);
+    conDom.value = data;
+}
+
+NormalSignupComponent.prototype.setUserNamePlaceholder = function (data) {
+    this.setAttribute(1,'placeholder',data)
+}
+
+NormalSignupComponent.prototype.setPassword = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-signup-password`);
+    conDom.value = data;
+}
+
+NormalSignupComponent.prototype.setPasswordPlaceholder = function (data) {
+    this.setAttribute(2,'placeholder',data)
+}
+
+NormalSignupComponent.prototype.setRePassword = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-signup-repassword`);
+    conDom.value = data;
+}
+
+NormalSignupComponent.prototype.setRePasswordPlaceholder = function (data) {
+    this.setAttribute(3,'placeholder',data)
+}
+
+
+NormalSignupComponent.prototype.onSignup = function (fun) {
+    let dom = this.getElement();
+    let options = this.getOptions();
+    let buttonId = `${dom.id}-signup-confirm`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click", function () {
+        let userDom = document.getElementById(`${dom.id}-signup-userName`);
+        if (!userDom.value) {
+            userDom.setAttribute('placeholder', '请输入账号');
+            return
+        }
+
+        let psDom = document.getElementById(`${dom.id}-signup-password`);
+        if (!psDom.value) {
+            psDom.setAttribute('placeholder', '请输入密码');
+            return
+        }
+        let rpsDom = document.getElementById(`${dom.id}-signup-repassword`);
+        if (!rpsDom.value) {
+            rpsDom.setAttribute('placeholder', '请确认密码');
+            return
+        }
+        if (psDom.value!=rpsDom.value) {
+            rpsDom.value = '';
+            rpsDom.setAttribute('placeholder', '密码不一致');
+            return
+        }
+        fun(userDom.value, psDom.value);
+        if (options['closeOnSubmit']=='true') {
+            closePPModal(`${dom.id}`);
+        }
+    });
+}
+
+NormalSignupComponent.prototype.onSubmit = function (fun) {
+    this.onSignup(fun);
+}
 
 PPSlick.prototype.onSubmit = function (component, fun) {
     component.onSubmit(fun);

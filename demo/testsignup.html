@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/ppslick.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let ppSlick = new PPSlick();
+        let signup = ppSlick.createNormalSignup({closeOnSubmit:'true'});
+
+        signup.onSubmit(function (userName,password) {
+            console.log(`账号：${userName}`);
+            console.log(`密码：${password}`);
+        })
+
+    }
+</script>
+<body>
+
+</body>
+</html>
