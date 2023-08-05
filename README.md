@@ -35,6 +35,9 @@
 
 ![输入图片说明](image/login2.png)
 
+4、注册组件，参考[testsignup.html](demo/testsignup.html)
+
+![输入图片说明](image/signup.png)
 
 ## 教程
 
