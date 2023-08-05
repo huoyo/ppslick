@@ -170,3 +170,76 @@ let options = {
 }
 let searcher = ppSlick.createContactMe(options);
 ```
+
+
+
+### 创建登录组件
+
+#### 1.创建组件
+
+```javascript
+//创建一个联系我组件
+let login = ppSlick.createSimpleLogin();
+```
+
+#### 2.提交回调函数
+
+```javascript
+//提交回调函数
+login.onSubmit(function (userName,password,isRememberme) {
+    console.log(`账号：${userName}`);
+    console.log(`密码：${password}`);
+    console.log(`是否记住我：${isRememberme}`);
+})
+```
+
+#### 3.设置其他属性
+
+```javascript
+//设置标题
+login.setTitle('登录')
+//或者
+// login.setAttribute(0,'html','登录')
+
+//设置账号提示
+login.setUserNamePlaceholder('请输入账号')
+//或者
+// login.setAttribute(1,'placeholder','请输入账号')
+
+//更改记住我的提示
+login.setRememberMeLabel('请记住我')
+//更忘记密码的提示
+login.setForgetPasswordLabel('忘记了密码')
+```
+
+#### 4.忘记密码回调函数
+
+```javascript
+login.onForgetPassword(function (user) {
+    console.log(`忘记密码：${user}`);
+})
+```
+
+#### 4.屏蔽小组件
+
+```javascript
+//禁用忘记密码
+login.disableForgetPassword();
+//禁用记住我
+login.disableRememberMe();
+```
+
+#### 5.设置初始属性
+
+```javascript
+let options = {
+    left:'20%',//组件距离左边的位置
+    top:'20%',//组件距离上边的位置
+    width:'300px',//组件宽度
+    maskColor:'rgba(0, 0, 0, 0.5)',//遮罩层颜色
+    backgroundColor:'white',//组件背景颜色
+    fontSize:'18px',//搜索框字体大小
+    fontColor:'#090910'//搜索框字体颜色
+}
+let searcher = ppSlick.createContactMe(options);
+```
