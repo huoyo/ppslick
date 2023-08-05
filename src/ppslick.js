@@ -6,7 +6,7 @@ function showPPModal(id, maskColor) {
     back.className = 'ppmodal-back';
     back.style.backgroundColor = maskColor;
     back.addEventListener("click", function () {
-        closeModal(id)
+        closePPModal(id)
     })
     document.querySelector("body").appendChild(back);
 }
@@ -655,7 +655,7 @@ PPSlick.prototype.createNormalSignup = function (options) {
     searchDom.style.width = `${componentOptions['width']}`;
     let id = guid();
     searchDom.id = id;
-    searchDom.innerHTML = `<h3 id="${id}-login-title" class="${id}-index-0">注册</h3>
+    searchDom.innerHTML = `<h3 id="${id}-signup-title" class="${id}-index-0">注册</h3>
     <div class="ppmodal-line">
         <input id="${id}-signup-userName" class="message-input  ${id}-index-1" type="text" placeholder="账号" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
