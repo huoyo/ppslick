@@ -33,6 +33,8 @@
 
 ![输入图片说明](image/login.png)
 
+![输入图片说明](image/login2.png)
+
 
 ## 教程
 
