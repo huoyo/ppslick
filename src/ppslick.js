@@ -48,12 +48,12 @@ function PPSlick() {
 function appendStyle() {
     let styleDom = document.getElementsByTagName("style")[0];
     if (styleDom != undefined) {
-        styleDom.innerHTML += '.ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 20px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 18px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}';
+        styleDom.innerHTML += '.ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 20px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 16px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 16px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}';
     } else {
         let style = document.createElement('style');
         style.type = 'text/css';
         style.rel = 'stylesheet';
-        style.appendChild(document.createTextNode(".ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 20px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 18px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}"));
+        style.appendChild(document.createTextNode(".ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 20px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 16px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 16px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}"));
         let head = document.getElementsByTagName('head')[0];
         head.appendChild(style);
     }
@@ -525,6 +525,7 @@ SimpleLoginComponent.prototype.onSubmit = function (fun) {
 
 function VerificationCodeLoginComponent(e) {
     this.element = e;
+    this.options = {};
 }
 
 VerificationCodeLoginComponent.prototype = new PPComponent();
@@ -564,7 +565,7 @@ PPSlick.prototype.createVerificationCodeLogin = function (options) {
     </div>
     <div class="ppmodal-line">
       <input id="${id}-login-verification" style="width: 60%;border-radius: 5px 0 0 5px" class="message-input ${id}-index-2" type="password" placeholder="验证码"/>
-       <button id="${id}-login-veributton" style="width: 40%;border-radius: 0 5px 5px 0;background-color: #69788a;border: 1px solid #69788a;box-shadow: none" class="confirm-button ${id}-index-3">获取验证码</button>
+       <button id="${id}-login-veributton" style="width: 40%;border-radius: 0 5px 5px 0;background-color: #69788a;border: 1px solid #69788a;box-shadow: none;height: 43px" class="confirm-button ${id}-index-3">获取验证码</button>
     </div>
     <div class="ppmodal-line">
         <button id="${id}-login-confirm" class="confirm-button ${id}-index-4">登录</button>
@@ -798,6 +799,99 @@ NormalSignupComponent.prototype.onSignup = function (fun) {
 
 NormalSignupComponent.prototype.onSubmit = function (fun) {
     this.onSignup(fun);
+}
+
+
+function EmailSubscribeComponent(e) {
+    this.element = e;
+    this.options = {};
+}
+
+EmailSubscribeComponent.prototype = new PPComponent();
+
+PPSlick.prototype.createEmailSubscription = function (options) {
+    let componentOptions = {}
+    if (options) {
+        componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
+        componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
+        componentOptions['width'] = options['width'] || '20%';
+        componentOptions['placeholder'] = options['placeholder'] || this.defaultOptions.get('placeholder');
+        componentOptions['maskColor'] = options['maskColor'] || this.defaultOptions.get('maskColor');
+        componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
+        componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
+        componentOptions['fontSize'] = options['fontSize'] || '16px';
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
+    } else {
+        this.defaultOptions.forEach(function (v, k) {
+            if (k=='width') {
+                componentOptions[k] = '20%';
+            }else {
+                componentOptions[k] = v;
+            }
+        })
+    }
+    let searchDom = document.createElement('div');
+    searchDom.className = 'ppmodal ppmodal-login';
+    searchDom.style.background = `${componentOptions['backgroundColor']}`;
+    searchDom.style.left = `${componentOptions['left']}`;
+    searchDom.style.top = `${componentOptions['top']}`;
+    searchDom.style.width = `${componentOptions['width']}`;
+    let id = guid();
+    searchDom.id = id;
+    searchDom.innerHTML = `<p id="${id}-emailsubscribe-description" class="${id}-index-0" style="text-align: left">订阅说明</p>
+    <div class="ppmodal-line">
+      <input id="${id}-emailsubscribe-email" style="width: 70%;border-radius: 5px 0 0 5px;font-size: 16px;" class="message-input ${id}-index-1" type="text" placeholder="xx@xx.com"/>
+       <button id="${id}-emailsubscribe-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2">订阅</button>
+    </div>`;
+    let body = document.getElementsByTagName('body')[0];
+    body.appendChild(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new EmailSubscribeComponent(searchDom);
+    com.options = componentOptions;
+    return com;
+}
+
+EmailSubscribeComponent.prototype.setDescription= function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-emailsubscribe-description`);
+    conDom.innerHTML = data;
+}
+
+EmailSubscribeComponent.prototype.setEmail = function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-emailsubscribe-email`);
+    conDom.value = data;
+}
+
+EmailSubscribeComponent.prototype.setEmailPlaceholder = function (data) {
+    this.setAttribute(1,'placeholder',data)
+}
+
+EmailSubscribeComponent.prototype.setEmailRegExp = function (regexp) {
+    this.setCheckRegExp(1,regexp);
+}
+
+
+EmailSubscribeComponent.prototype.onSubscribe = function (fun) {
+    let dom = this.getElement();
+    let options = this.getOptions();
+    let buttonId = `${dom.id}-emailsubscribe-button`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click", function () {
+        let userDom = document.getElementById(`${dom.id}-emailsubscribe-email`);
+        if (!userDom.value) {
+            userDom.setAttribute('placeholder', '请输入正确的邮箱');
+            return
+        }
+        fun(userDom.value);
+        if (options['closeOnSubmit']=='true') {
+            closePPModal(`${dom.id}`);
+        }
+    });
+}
+
+EmailSubscribeComponent.prototype.onSubmit = function (fun) {
+   this.onSubscribe(fun);
 }
 
 PPSlick.prototype.onSubmit = function (component, fun) {

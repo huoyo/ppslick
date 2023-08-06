@@ -14,9 +14,9 @@
 </div>
 
 
-<h4>一个javascript组件库，提供基本的联系我、登录、注册和搜索之类的弹窗组件（无需写html+css），拿来即用</h4>
+<h4>一个javascript组件库，提供基本的联系我、登录、注册、搜索和邮件订阅之类的弹窗组件（无需写html+css），拿来即用</h4>
 
-<h4>A lightweight javascript library to create some modal windows without html and css like `contact me`、`search`、`login` and `sign up` etc.</h4>
+<h4>A lightweight javascript library to create some modal windows without html and css like `contact me`、`search`、`login`、`sign up` and `email subscribe` etc.</h4>
 
 
 ## 使用参考
@@ -38,6 +38,8 @@
 4、注册组件，参考[testsignup.html](demo/testsignup.html)
 
 ![输入图片说明](image/signup.png)
+
+5、邮件订阅组件，参考[testemailsubscribe.html](demo/testemailsubscribe.html)
 
 ## 教程
 
@@ -343,3 +345,23 @@ signup.onSubmit(function (userName,password) {
     console.log(`密码：${password}`);
 })
 ```
+
+#### 6.邮件订阅组件
+
+##### 6.1.创建组件
+
+```javascript
+//创建注册组件
+let emailSubscription = ppSlick.createEmailSubscription();
+emailSubscription.setDescription("订阅描述...");
+```
+
+##### 6.2.提交回调函数
+
+```javascript
+//提交回调函数
+emailSubscription.onSubmit(function (email) {
+    console.log(`邮箱：${email}`);
+})
+```
+
