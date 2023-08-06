@@ -42,6 +42,8 @@
 
 5、邮件订阅组件，参考[testemailsubscribe.html](demo/testemailsubscribe.html)
 
+![输入图片说明](image/email.png)
+
 ## 教程
 
 ### 一、引入依赖
