@@ -90,6 +90,29 @@ PPComponent.prototype.setAttribute = function (index, property, value) {
     }
 }
 
+PPComponent.prototype.setCheckRegExp = function (index, regexp) {
+    let element = this.getElement();
+    let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
+    let dom = inputs[0];
+    if(dom.tagName != 'INPUT'){
+        console.error(`invalid regexp ${regexp} for ${dom.tagName},and you can only use regexp on input`);
+        return
+    }
+    let oldColor = dom.style.borderColor;
+
+    dom.addEventListener('change',function () {
+        let value = this.value;
+        let n = regexp.test(value);
+        if (!n) {
+            dom.style.borderColor = 'red';
+            dom.value = '';
+            dom.setAttribute('placeholder','不符合要求的内容，请重新输入');
+        }else {
+            dom.style.borderColor = oldColor;
+        }
+    });
+}
+
 function SearchComponent(e) {
     this.element = e;
     this.options = {};
@@ -412,6 +435,10 @@ SimpleLoginComponent.prototype.setUserNamePlaceholder = function (data) {
     this.setAttribute(1,'placeholder',data)
 }
 
+SimpleLoginComponent.prototype.setUserNameRegExp = function (regexp) {
+    this.setCheckRegExp(1,regexp)
+}
+
 SimpleLoginComponent.prototype.setPassword = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-password`);
@@ -420,6 +447,10 @@ SimpleLoginComponent.prototype.setPassword = function (data) {
 
 SimpleLoginComponent.prototype.setPasswordPlaceholder = function (data) {
     this.setAttribute(2,'placeholder',data)
+}
+
+SimpleLoginComponent.prototype.setPasswordRegExp = function (regexp) {
+    this.setCheckRegExp(2,regexp)
 }
 
 SimpleLoginComponent.prototype.setRememberMe= function () {
@@ -564,6 +595,10 @@ VerificationCodeLoginComponent.prototype.setUserNamePlaceholder = function (data
     this.setAttribute(1,'placeholder',data)
 }
 
+VerificationCodeLoginComponent.prototype.setUserNameRegExp = function (regexp) {
+    this.setCheckRegExp(1,regexp)
+}
+
 VerificationCodeLoginComponent.prototype.setVerification = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-login-verification`);
@@ -694,6 +729,10 @@ NormalSignupComponent.prototype.setUserNamePlaceholder = function (data) {
     this.setAttribute(1,'placeholder',data)
 }
 
+NormalSignupComponent.prototype.setUserNameRegExp = function (regexp) {
+    this.setCheckRegExp(1,regexp)
+}
+
 NormalSignupComponent.prototype.setPassword = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-signup-password`);
@@ -704,6 +743,10 @@ NormalSignupComponent.prototype.setPasswordPlaceholder = function (data) {
     this.setAttribute(2,'placeholder',data)
 }
 
+NormalSignupComponent.prototype.setPasswordRegExp = function (regexp) {
+    this.setCheckRegExp(2,regexp)
+}
+
 NormalSignupComponent.prototype.setRePassword = function (data) {
     let searchDomId = this.getElement().id;
     let conDom = document.getElementById(`${searchDomId}-signup-repassword`);
@@ -712,6 +755,10 @@ NormalSignupComponent.prototype.setRePassword = function (data) {
 
 NormalSignupComponent.prototype.setRePasswordPlaceholder = function (data) {
     this.setAttribute(3,'placeholder',data)
+}
+
+NormalSignupComponent.prototype.setRePasswordRegExp = function (regexp) {
+    this.setCheckRegExp(3,regexp)
 }
 
 

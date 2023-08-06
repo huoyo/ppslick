@@ -10,7 +10,10 @@
     window.onload = function () {
         let ppSlick = new PPSlick();
         let signup = ppSlick.createNormalSignup({closeOnSubmit:'true'});
-
+        //为账号设置正则表达式校验
+        // signup.setUserNameRegExp(/^[0-9]{11}$/)
+        //为密码设置正则表达式校验
+        // signup.setPasswordRegExp(/^[0-9]{11}$/)
         signup.onSubmit(function (userName,password) {
             console.log(`账号：${userName}`);
             console.log(`密码：${password}`);
