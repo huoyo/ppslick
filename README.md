@@ -110,6 +110,8 @@ let options = {
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let searcher = ppSlick.createSearcher(options);
+//closeOnSubmit:'true'时需要手动关闭组件 
+//searcher.close();
 ```
 
 
@@ -176,7 +178,9 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let searcher = ppSlick.createContactMe(options);
+let contactMe = ppSlick.createContactMe(options);
+//closeOnSubmit:'true'时需要手动关闭组件 
+//contactMe.close();
 ```
 
 
@@ -249,7 +253,9 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let searcher = ppSlick.createNormalLogin(options);
+let login = ppSlick.createNormalLogin(options);
+//closeOnSubmit:'true'时需要手动关闭组件 
+//login.close();
 ```
 
 #### 4.创建验证码登录组件
@@ -313,7 +319,9 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let searcher = ppSlick.createVerificationCodeLogin(options);
+let login = ppSlick.createVerificationCodeLogin(options);
+//closeOnSubmit:'true'时需要手动关闭组件 
+//login.close();
 ```
 
 
