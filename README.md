@@ -186,7 +186,6 @@ let searcher = ppSlick.createContactMe(options);
 ##### 3.1.创建组件
 
 ```javascript
-//创建一个联系我组件
 let login = ppSlick.createNormalLogin();
 ```
 
@@ -258,7 +257,6 @@ let searcher = ppSlick.createNormalLogin(options);
 ##### 4.1.创建组件
 
 ```javascript
-//创建一个联系我组件
 let login = ppSlick.createVerificationCodeLogin();
 ```
 
