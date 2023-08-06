@@ -110,7 +110,7 @@ let options = {
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let searcher = ppSlick.createSearcher(options);
-//closeOnSubmit:'true'时需要手动关闭组件 
+//closeOnSubmit:'false'时需要手动关闭组件 
 //searcher.close();
 ```
 
@@ -179,7 +179,7 @@ let options = {
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let contactMe = ppSlick.createContactMe(options);
-//closeOnSubmit:'true'时需要手动关闭组件 
+//closeOnSubmit:'false'时需要手动关闭组件 
 //contactMe.close();
 ```
 
@@ -254,7 +254,7 @@ let options = {
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let login = ppSlick.createNormalLogin(options);
-//closeOnSubmit:'true'时需要手动关闭组件 
+//closeOnSubmit:'false'时需要手动关闭组件 
 //login.close();
 ```
 
@@ -320,7 +320,7 @@ let options = {
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
 let login = ppSlick.createVerificationCodeLogin(options);
-//closeOnSubmit:'true'时需要手动关闭组件 
+//closeOnSubmit:'false'时需要手动关闭组件 
 //login.close();
 ```
 
