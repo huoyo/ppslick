@@ -165,3 +165,18 @@
     font-size: 18px;
     padding-top: 5px;
 }
+
+.search-candidates li:hover{
+    background-color: #3038d2;
+    cursor: pointer;
+    color: white;
+}
+
+.search-candidates-li{
+
+}
+.search-candidates-li:focus{
+    background-color: #3038d2;
+    cursor: pointer;
+    color: white;
+}
