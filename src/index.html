@@ -9,7 +9,13 @@
 <script>
 
     window.onload = function () {
-       // let pp = PPSlick()
+       let btn = document.getElementsByClassName('confirm-button')[0];
+       btn.addEventListener('click',function () {
+           console.log(1)
+       })
+        btn.addEventListener('click',function () {
+            console.log(2)
+        })
     }
 </script>
 <body>
@@ -17,6 +23,9 @@
     <h3>注册</h3>
     <div class="ppmodal-line">
         <input class="message-input" type="text" placeholder="账号"/>
+    </div>
+    <div style="text-align: left;color: red;font-size: 14px;padding-left: 10px">
+        请输入内容
     </div>
     <div class="ppmodal-line">
         <input class="message-input" type="password" placeholder="密码"/>

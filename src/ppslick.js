@@ -48,12 +48,12 @@ function PPSlick() {
 function appendStyle() {
     let styleDom = document.getElementsByTagName("style")[0];
     if (styleDom != undefined) {
-        styleDom.innerHTML += '.ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 20px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 16px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 16px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}.search-candidates li:hover{background-color: #3038d2;cursor: pointer;color: white;}';
+        styleDom.innerHTML += '.ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 10px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 16px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 16px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}.search-candidates li:hover{background-color: #3038d2;cursor: pointer;color: white;}';
     } else {
         let style = document.createElement('style');
         style.type = 'text/css';
         style.rel = 'stylesheet';
-        style.appendChild(document.createTextNode(".ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 20px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 16px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 16px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}.search-candidates li:hover{background-color: #3038d2;cursor: pointer;color: white;}"));
+        style.appendChild(document.createTextNode(".ppmodal {position: fixed;height: auto;background-color: white;text-align: center;border-radius: 10px;top: 30%;box-shadow: rgb(67, 70, 69) 1px 1px 7px;display: none;z-index: 10;padding: 30px;animation:ppmodal-appear 1s }@keyframes ppmodal-appear {from {opacity:0}to {opacity:1;}}.ppmodal-seacrh{width: 30%;left: calc((100% - 30%)/2 - 30px);}.ppmodal-contact{width: 20%;left: calc((100% - 20%)/2 - 30px);}.ppmodal-login{width: 15%;left: calc((100% - 15%)/2 - 30px);}.ppmodal-back {position: fixed;top: 0;right: 0;bottom: 0;left: 0;background-color: rgba(0, 0, 0, 0.5);opacity: 0.9;}.ppmodal-line{display: flex;margin-top: 10px;;}.message-button{width: 100%;height: 45px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 18px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.message-button:hover{box-shadow: #08051f 1px 1px 1px;}.confirm-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #2108dd;background-color: #2108dd;font-size: 16px;font-weight: bold;color: #f7f7fc;cursor: pointer;}.confirm-button:hover{box-shadow: #08051f 1px 1px 1px;}.cancel-button{width: 100%;height: 40px;border-radius: 5px;border: 1px solid #eeedeb;background-color: #eeedeb;font-size: 16px;font-weight: bold;color: #030341;cursor: pointer;}.cancel-button:hover{box-shadow: #eeedeb 1px 1px 1px;}.message-input{width: 100%;height: 40px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 16px;color: #090910;padding-left: 10px;}.message-area{width: 100%;height: 200px;outline-style: none;border-radius: 5px;border: 1px solid #e8e8f4;font-size: 18px;color: #090910;padding: 10px;resize: none;}.search-input{width: 100%;height: 40px;outline-style: none;border: none;border-bottom: 1px solid #2108dd;font-size: 18px;color: #090910;padding-left: 10px;}.search-button{width: 15%;height: 45px;outline-style: none;border-radius: 0 5px 5px 0;border: 1px solid #9cd59c;font-size: 18px;font-weight: bold;color: #090910;padding-left: 10px;padding-right: 10px;cursor: pointer;background-color: #239f40;color: white;}.search-candidates{margin: 0;width: 99%;text-align: left;list-style-type: none;padding-left: 10px;max-height: 200px;height: auto;overflow-y: auto;}.search-candidates li{border-bottom: 1px solid #dbe7db;height: 30px;font-size: 18px;padding-top: 5px;}.search-candidates li:hover{background-color: #3038d2;cursor: pointer;color: white;}"));
         let head = document.getElementsByTagName('head')[0];
         head.appendChild(style);
     }
@@ -113,6 +113,7 @@ PPComponent.prototype.setCheckRegExp = function (index, regexp) {
     });
 }
 
+
 function SearchComponent(e) {
     this.element = e;
     this.options = {};
@@ -122,7 +123,7 @@ SearchComponent.prototype = new PPComponent()
 
 PPSlick.prototype.createSearcher = function (options) {
     let componentOptions = {};
-    componentOptions['nullPlaceholder'] = '请输入搜索内容';
+    componentOptions['NullTip'] = '请输入搜索内容';
     if (options) {
         componentOptions['left'] = options['left'] || this.defaultOptions.get('left');
         componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
@@ -176,7 +177,7 @@ SearchComponent.prototype.onSearch = function (fun) {
                     closePPModal(`${dom.id}`);
                 }
             } else {
-                input.setAttribute('placeholder', options['nullPlaceholder']);
+                input.setAttribute('placeholder', options['NullTip']);
             }
         }
     }
@@ -226,8 +227,8 @@ SearchComponent.prototype.setPlaceholder = function (text) {
     input.setAttribute('placeholder', text);
 }
 
-SearchComponent.prototype.setNullPlaceholder = function (text) {
-   this.options['nullPlaceholder'] = text;
+SearchComponent.prototype.setNullTip = function (text) {
+   this.options['NullTip'] = text;
 }
 
 SearchComponent.prototype.setValue = function (text) {
@@ -256,8 +257,8 @@ ContactMeComponent.prototype.setDescriptionPlaceholder = function (text) {
     conDom.setAttribute("placeholder", text);
 }
 
-ContactMeComponent.prototype.setDescriptionNullPlaceholder = function (text) {
-   this.options['descriptionNullPlaceholder'] = text;
+ContactMeComponent.prototype.setDescriptionNullTip = function (text) {
+   this.options['descriptionNullTip'] = text;
 }
 
 ContactMeComponent.prototype.setTypeList = function (dataList) {
@@ -292,8 +293,8 @@ ContactMeComponent.prototype.setNumberPlaceholder = function (text) {
     conDom.setAttribute("placeholder", text);
 }
 
-ContactMeComponent.prototype.setNumberNullPlaceholder = function (text) {
-    this.options['numberNullPlaceholder'] = text;
+ContactMeComponent.prototype.setNumberNullTip = function (text) {
+    this.options['numberNullTip'] = text;
 }
 
 ContactMeComponent.prototype.disableNumber = function () {
@@ -310,14 +311,14 @@ ContactMeComponent.prototype.onSubmit = function (fun) {
     buttonDom.addEventListener("click", function () {
         let desDom = document.getElementById(`${dom.id}-contact-area`);
         if (!desDom.value) {
-            desDom.setAttribute('placeholder', options['descriptionNullPlaceholder']);
+            addNullTipEvent(desDom,options['descriptionNullTip']);
             return
         }
         let typeDom = document.getElementById(`${dom.id}-contact-type`);
 
         let phoneDom = document.getElementById(`${dom.id}-contact-phone`);
         if (!phoneDom.value) {
-            phoneDom.setAttribute('placeholder', options['numberNullPlaceholder']);
+            addNullTipEvent(phoneDom,options['numberNullTip']);
             return
         }
         fun(desDom.value, typeDom.value, phoneDom.value);
@@ -329,8 +330,8 @@ ContactMeComponent.prototype.onSubmit = function (fun) {
 
 PPSlick.prototype.createContactMe = function (options) {
     let componentOptions = {};
-    componentOptions['descriptionNullPlaceholder'] = '请输入内容';
-    componentOptions['numberNullPlaceholder'] = '请输入联系方式';
+    componentOptions['descriptionNullTip'] = '请输入内容';
+    componentOptions['numberNullTip'] = '请输入联系方式';
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 20%)/2 - 30px)';
         componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
@@ -361,6 +362,8 @@ PPSlick.prototype.createContactMe = function (options) {
     searchDom.innerHTML = ` <div class="ppmodal-line">
         <textarea required  id="${id}-contact-area"  class="message-area ${id}-index-0" placeholder="请描述内容（必填）" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"></textarea>
     </div>
+    <div id="${id}-contact-area-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
+    </div>
     <div class="ppmodal-line">
         <select  id="${id}-contact-type" class="message-input  ${id}-index-1"  style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}">
             <option>--业务类别--</option>
@@ -368,6 +371,8 @@ PPSlick.prototype.createContactMe = function (options) {
     </div>
     <div class="ppmodal-line">
         <input  id="${id}-contact-phone" class="message-input ${id}-index-2" type="search" placeholder="联系方式（必填）" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+     <div id="${id}-contact-phone-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
     <div class="ppmodal-line">
         <button id="${id}-contact-button" class="message-button  ${id}-index-3">确定</button>
@@ -389,8 +394,8 @@ SimpleLoginComponent.prototype = new PPComponent();
 
 PPSlick.prototype.createNormalLogin = function (options) {
     let componentOptions = {};
-    componentOptions['userNameNullPlaceholder'] = '请输入账号';
-    componentOptions['passwordNullPlaceholder'] = '请输入密码';
+    componentOptions['userNameNullTip'] = '请输入账号';
+    componentOptions['passwordNullTip'] = '请输入密码';
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
         componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
@@ -422,8 +427,12 @@ PPSlick.prototype.createNormalLogin = function (options) {
     <div class="ppmodal-line">
         <input id="${id}-login-userName" class="message-input  ${id}-index-1" type="text" placeholder="账号" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
+     <div id="${id}-login-userName-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
+    </div>
     <div class="ppmodal-line">
         <input id="${id}-login-password" class="message-input  ${id}-index-2" type="password" placeholder="密码" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+    <div id="${id}-login-password-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
       <div class="ppmodal-line">
         <div id="${id}-login-rememberme-div" style="width: 100%"><input id="${id}-login-rememberme" class="${id}-index-3" type="checkbox" placeholder=""/><span id="${id}-login-remembermelable">记住我</span></div>
@@ -458,8 +467,8 @@ SimpleLoginComponent.prototype.setUserNamePlaceholder = function (data) {
     this.setAttribute(1,'placeholder',data)
 }
 
-SimpleLoginComponent.prototype.setUserNameNullPlaceholder = function (data) {
-    this.options['userNameNullPlaceholder'] = data;
+SimpleLoginComponent.prototype.setUserNameNullTip = function (data) {
+    this.options['userNameNullTip'] = data;
 }
 
 SimpleLoginComponent.prototype.setUserNameRegExp = function (regexp) {
@@ -476,8 +485,8 @@ SimpleLoginComponent.prototype.setPasswordPlaceholder = function (data) {
     this.setAttribute(2,'placeholder',data)
 }
 
-SimpleLoginComponent.prototype.setPasswordNullPlaceholder = function (data) {
-    this.options['passwordNullPlaceholder'] = data;
+SimpleLoginComponent.prototype.setPasswordNullTip = function (data) {
+    this.options['passwordNullTip'] = data;
 }
 
 
@@ -534,13 +543,13 @@ SimpleLoginComponent.prototype.onLogin = function (fun) {
     buttonDom.addEventListener("click", function () {
         let userDom = document.getElementById(`${dom.id}-login-userName`);
         if (!userDom.value) {
-            userDom.setAttribute('placeholder', options['userNameNullPlaceholder']);
+            addNullTipEvent(userDom,options['userNameNullTip']);
             return
         }
 
         let psDom = document.getElementById(`${dom.id}-login-password`);
         if (!psDom.value) {
-            psDom.setAttribute('placeholder', options['passwordNullPlaceholder']);
+            addNullTipEvent(psDom,options['passwordNullTip']);
             return
         }
         let reDom = document.getElementById(`${dom.id}-login-rememberme`);
@@ -564,8 +573,8 @@ VerificationCodeLoginComponent.prototype = new PPComponent();
 
 PPSlick.prototype.createVerificationCodeLogin = function (options) {
     let componentOptions = {};
-    componentOptions['userNameNullPlaceholder'] = '请输入电话号码';
-    componentOptions['verificationNullPlaceholder'] = '请输入验证码';
+    componentOptions['userNameNullTip'] = '请输入电话号码';
+    componentOptions['verificationNullTip'] = '请输入验证码';
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
         componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
@@ -597,9 +606,13 @@ PPSlick.prototype.createVerificationCodeLogin = function (options) {
     <div class="ppmodal-line">
         <input id="${id}-login-userName" class="message-input  ${id}-index-1" type="text" placeholder="账号" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
+    <div id="${id}-login-userName-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
+    </div>
     <div class="ppmodal-line">
       <input id="${id}-login-verification" style="width: 60%;border-radius: 5px 0 0 5px" class="message-input ${id}-index-2" type="password" placeholder="验证码"/>
        <button id="${id}-login-veributton" style="width: 40%;border-radius: 0 5px 5px 0;background-color: #69788a;border: 1px solid #69788a;box-shadow: none;height: 43px" class="confirm-button ${id}-index-3">获取验证码</button>
+    </div>
+     <div id="${id}-login-verification-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
     <div class="ppmodal-line">
         <button id="${id}-login-confirm" class="confirm-button ${id}-index-4">登录</button>
@@ -630,8 +643,8 @@ VerificationCodeLoginComponent.prototype.setUserNamePlaceholder = function (data
     this.setAttribute(1,'placeholder',data)
 }
 
-VerificationCodeLoginComponent.prototype.setUserNameNullPlaceholder = function (data) {
-    this.options['userNameNullPlaceholder'] = data;
+VerificationCodeLoginComponent.prototype.setUserNameNullTip = function (data) {
+    this.options['userNameNullTip'] = data;
 }
 
 VerificationCodeLoginComponent.prototype.setUserNameRegExp = function (regexp) {
@@ -648,8 +661,8 @@ VerificationCodeLoginComponent.prototype.setVerificationPlaceholder = function (
     this.setAttribute(2,'placeholder',data)
 }
 
-VerificationCodeLoginComponent.prototype.setVerificationNullPlaceholder = function (data) {
-    this.options['verificationNullPlaceholder'] = data;
+VerificationCodeLoginComponent.prototype.setVerificationNullTip = function (data) {
+    this.options['verificationNullTip'] = data;
 }
 
 VerificationCodeLoginComponent.prototype.setVerificationButtonLabel = function (data) {
@@ -676,13 +689,13 @@ VerificationCodeLoginComponent.prototype.onLogin = function (fun) {
     buttonDom.addEventListener("click", function () {
         let userDom = document.getElementById(`${dom.id}-login-userName`);
         if (!userDom.value) {
-            userDom.setAttribute('placeholder', options['userNameNullPlaceholder']);
+            addNullTipEvent(userDom,options['userNameNullTip']);
             return
         }
 
         let psDom = document.getElementById(`${dom.id}-login-verification`);
         if (!psDom.value) {
-            psDom.setAttribute('placeholder', options['verificationNullPlaceholder']);
+            addNullTipEvent(psDom,options['verificationNullTip']);
             return
         }
         fun(userDom.value, psDom.value);
@@ -706,9 +719,9 @@ NormalSignupComponent.prototype = new PPComponent();
 
 PPSlick.prototype.createNormalSignup = function (options) {
     let componentOptions = {};
-    componentOptions['userNameNullPlaceholder'] = '请输入账号';
-    componentOptions['passwordNullPlaceholder'] = '请输入密码';
-    componentOptions['rePasswordNullPlaceholder'] = '请确认密码';
+    componentOptions['userNameNullTip'] = '请输入账号';
+    componentOptions['passwordNullTip'] = '请输入密码';
+    componentOptions['rePasswordNullTip'] = '请确认密码';
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
         componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
@@ -740,11 +753,17 @@ PPSlick.prototype.createNormalSignup = function (options) {
     <div class="ppmodal-line">
         <input id="${id}-signup-userName" class="message-input  ${id}-index-1" type="text" placeholder="账号" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
+     <div id="${id}-signup-userName-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
+    </div>
     <div class="ppmodal-line">
         <input id="${id}-signup-password" class="message-input  ${id}-index-2" type="password" placeholder="密码" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
     </div>
+     <div id="${id}-signup-password-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
+    </div>
       <div class="ppmodal-line">
          <input id="${id}-signup-repassword" class="message-input  ${id}-index-3" type="password" placeholder="确认密码" style="color: ${componentOptions['fontColor']};font-size: ${componentOptions['fontSize']}"/>
+    </div>
+      <div id="${id}-signup-repassword-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
     <div class="ppmodal-line">
         <button id="${id}-signup-confirm" class="confirm-button ${id}-index-4">注册</button>
@@ -775,8 +794,8 @@ NormalSignupComponent.prototype.setUserNamePlaceholder = function (data) {
     this.setAttribute(1,'placeholder',data)
 }
 
-NormalSignupComponent.prototype.setUserNameNullPlaceholder = function (data) {
-    this.options['userNameNullPlaceholder'] = data;
+NormalSignupComponent.prototype.setUserNameNullTip = function (data) {
+    this.options['userNameNullTip'] = data;
 }
 
 NormalSignupComponent.prototype.setUserNameRegExp = function (regexp) {
@@ -789,8 +808,8 @@ NormalSignupComponent.prototype.setPassword = function (data) {
     conDom.value = data;
 }
 
-NormalSignupComponent.prototype.setPasswordNullPlaceholder = function (data) {
-    this.options['passwordNullPlaceholder'] = data;
+NormalSignupComponent.prototype.setPasswordNullTip = function (data) {
+    this.options['passwordNullTip'] = data;
 }
 
 NormalSignupComponent.prototype.setPasswordPlaceholder = function (data) {
@@ -811,8 +830,8 @@ NormalSignupComponent.prototype.setRePasswordPlaceholder = function (data) {
     this.setAttribute(3,'placeholder',data)
 }
 
-NormalSignupComponent.prototype.setRePasswordNullPlaceholder = function (data) {
-    this.options['rePasswordNullPlaceholder'] = data;
+NormalSignupComponent.prototype.setRePasswordNullTip = function (data) {
+    this.options['rePasswordNullTip'] = data;
 }
 
 NormalSignupComponent.prototype.setRePasswordRegExp = function (regexp) {
@@ -828,18 +847,18 @@ NormalSignupComponent.prototype.onSignup = function (fun) {
     buttonDom.addEventListener("click", function () {
         let userDom = document.getElementById(`${dom.id}-signup-userName`);
         if (!userDom.value) {
-            userDom.setAttribute('placeholder', options['userNameNullPlaceholder']);
+            addNullTipEvent(userDom,options['userNameNullTip']);
             return
         }
 
         let psDom = document.getElementById(`${dom.id}-signup-password`);
         if (!psDom.value) {
-            psDom.setAttribute('placeholder', options['passwordNullPlaceholder']);
+            addNullTipEvent(psDom,options['passwordNullTip']);
             return
         }
         let rpsDom = document.getElementById(`${dom.id}-signup-repassword`);
         if (!rpsDom.value) {
-            rpsDom.setAttribute('placeholder', options['rePasswordNullPlaceholder']);
+            addNullTipEvent(rpsDom,options['rePasswordNullTip']);
             return
         }
         if (psDom.value!=rpsDom.value) {
@@ -868,7 +887,7 @@ EmailSubscribeComponent.prototype = new PPComponent();
 
 PPSlick.prototype.createEmailSubscription = function (options) {
     let componentOptions = {};
-    componentOptions['emailNullPlaceholder'] = '请输入邮箱';
+    componentOptions['emailNullTip'] = '请输入邮箱';
     if (options) {
         componentOptions['left'] = options['left'] || 'calc((100% - 15%)/2 - 30px)';
         componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
@@ -900,6 +919,8 @@ PPSlick.prototype.createEmailSubscription = function (options) {
     <div class="ppmodal-line">
       <input id="${id}-emailsubscribe-email" style="width: 70%;border-radius: 5px 0 0 5px;font-size: 16px;" class="message-input ${id}-index-1" type="text" placeholder="xx@xx.com"/>
        <button id="${id}-emailsubscribe-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2">订阅</button>
+    </div>
+         <div id="${id}-emailsubscribe-email-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
@@ -925,8 +946,8 @@ EmailSubscribeComponent.prototype.setEmailPlaceholder = function (data) {
     this.setAttribute(1,'placeholder',data)
 }
 
-EmailSubscribeComponent.prototype.setEmailNullPlaceholder = function (data) {
-    this.options['emailNullPlaceholder'] = data;
+EmailSubscribeComponent.prototype.setEmailNullTip = function (data) {
+    this.options['emailNullTip'] = data;
 }
 
 EmailSubscribeComponent.prototype.setEmailRegExp = function (regexp) {
@@ -942,7 +963,7 @@ EmailSubscribeComponent.prototype.onSubscribe = function (fun) {
     buttonDom.addEventListener("click", function () {
         let userDom = document.getElementById(`${dom.id}-emailsubscribe-email`);
         if (!userDom.value) {
-            userDom.setAttribute('placeholder', options['emailNullPlaceholder']);
+            addNullTipEvent(userDom,options['emailNullTip']);
             return
         }
         fun(userDom.value);
@@ -971,4 +992,16 @@ function listCandidates(domId, value) {
 
 function guid() {
     return Date.now().toString(36);
+}
+
+addNullTipEvent = function (inputDom, tipText) {
+    let tipDom = document.getElementById(`${inputDom.id}-tip`);
+    tipDom.innerHTML = tipText;
+    inputDom.style.borderColor = 'red';
+    inputDom.addEventListener('input',function () {
+        if (this.value) {
+            tipDom.innerHTML = '';
+            inputDom.style.borderColor = '#e8e8f4';
+        }
+    })
 }

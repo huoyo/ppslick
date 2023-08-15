@@ -46,7 +46,11 @@
 
 .ppmodal-line{
     display: flex;
-    margin-top: 20px;;
+    margin-top: 10px;;
+}
+
+ppmodal-line-tip{
+    text-align:left;color:red;font-size:14px;padding-left:10px;
 }
 
 .message-button{
