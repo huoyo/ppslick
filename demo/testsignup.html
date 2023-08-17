@@ -8,8 +8,7 @@
 </head>
 <script>
     window.onload = function () {
-        let ppSlick = new PPSlick();
-        let signup = ppSlick.createNormalSignup({closeOnSubmit:'true'});
+        let signup = PPSlick.createNormalSignup({closeOnSubmit:'true'});
         //为账号设置正则表达式校验
         // signup.setUserNameRegExp(/^[0-9]{11}$/)
         //为密码设置正则表达式校验

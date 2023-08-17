@@ -8,8 +8,7 @@
 </head>
 <script>
     window.onload = function () {
-        let ppSlick = new PPSlick();
-        let emailSubscribe = ppSlick.createEmailSubscription({closeOnSubmit:'true'});
+        let emailSubscribe = PPSlick.createEmailSubscription({closeOnSubmit:'true'});
         emailSubscribe.setDescription("订阅描述...");
         emailSubscribe.setEmailRegExp(/^[a-zA-Z0-9]+@qq.com/)
         emailSubscribe.onSubmit(function (email) {

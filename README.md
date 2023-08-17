@@ -52,12 +52,8 @@
 <script src="../src/ppslick.js"></script>
 ```
 
-### 二、初始化PPSlick
 
-```javascript
-let ppSlick = new PPSlick();
-```
-### 三、创建组件
+### 二、创建组件
 
 #### 1.创建搜索组件
 
@@ -65,7 +61,7 @@ let ppSlick = new PPSlick();
 
 ```javascript
 //创建一个搜索组件
-let searcher = ppSlick.createSearcher();
+let searcher = PPSlick.createSearcher();
 ```
 
 ##### 1.2.搜索回调函数
@@ -114,7 +110,7 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let searcher = ppSlick.createSearcher(options);
+let searcher = PPSlick.createSearcher(options);
 //closeOnSubmit:'false'时需要手动关闭组件 
 //searcher.close();
 ```
@@ -126,7 +122,7 @@ let searcher = ppSlick.createSearcher(options);
 
 ```javascript
 //创建一个联系我组件
-let contactMe = ppSlick.createContactMe();
+let contactMe = PPSlick.createContactMe();
 ```
 
 ##### 2.2.提交回调函数
@@ -183,7 +179,7 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let contactMe = ppSlick.createContactMe(options);
+let contactMe = PPSlick.createContactMe(options);
 //closeOnSubmit:'false'时需要手动关闭组件 
 //contactMe.close();
 ```
@@ -195,7 +191,7 @@ let contactMe = ppSlick.createContactMe(options);
 ##### 3.1.创建组件
 
 ```javascript
-let login = ppSlick.createNormalLogin();
+let login = PPSlick.createNormalLogin();
 ```
 
 ##### 3.2.提交回调函数
@@ -258,7 +254,7 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let login = ppSlick.createNormalLogin(options);
+let login = PPSlick.createNormalLogin(options);
 //closeOnSubmit:'false'时需要手动关闭组件 
 //login.close();
 ```
@@ -324,7 +320,7 @@ let options = {
     fontColor:'#090910',//搜索框字体颜色
     closeOnSubmit:'true'//提交后自动关闭该窗口
 }
-let login = ppSlick.createVerificationCodeLogin(options);
+let login = PPSlick.createVerificationCodeLogin(options);
 //closeOnSubmit:'false'时需要手动关闭组件 
 //login.close();
 ```

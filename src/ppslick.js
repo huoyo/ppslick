@@ -31,7 +31,7 @@ function closeAllPPModal() {
     }
 }
 
-function PPSlick() {
+function PPSlickClass() {
     this.defaultOptions = new Map();
     this.defaultOptions.set('left', 'calc((100% - 30%)/2 - 30px)');
     this.defaultOptions.set('top', '30%');
@@ -121,7 +121,7 @@ function SearchComponent(e) {
 
 SearchComponent.prototype = new PPComponent()
 
-PPSlick.prototype.createSearcher = function (options) {
+PPSlickClass.prototype.createSearcher = function (options) {
     let componentOptions = {};
     componentOptions['NullTip'] = '请输入搜索内容';
     if (options) {
@@ -328,7 +328,7 @@ ContactMeComponent.prototype.onSubmit = function (fun) {
     });
 }
 
-PPSlick.prototype.createContactMe = function (options) {
+PPSlickClass.prototype.createContactMe = function (options) {
     let componentOptions = {};
     componentOptions['descriptionNullTip'] = '请输入内容';
     componentOptions['numberNullTip'] = '请输入联系方式';
@@ -392,7 +392,7 @@ function SimpleLoginComponent(e) {
 
 SimpleLoginComponent.prototype = new PPComponent();
 
-PPSlick.prototype.createNormalLogin = function (options) {
+PPSlickClass.prototype.createNormalLogin = function (options) {
     let componentOptions = {};
     componentOptions['userNameNullTip'] = '请输入账号';
     componentOptions['passwordNullTip'] = '请输入密码';
@@ -571,7 +571,7 @@ function VerificationCodeLoginComponent(e) {
 
 VerificationCodeLoginComponent.prototype = new PPComponent();
 
-PPSlick.prototype.createVerificationCodeLogin = function (options) {
+PPSlickClass.prototype.createVerificationCodeLogin = function (options) {
     let componentOptions = {};
     componentOptions['userNameNullTip'] = '请输入电话号码';
     componentOptions['verificationNullTip'] = '请输入验证码';
@@ -717,7 +717,7 @@ function NormalSignupComponent(e) {
 
 NormalSignupComponent.prototype = new PPComponent();
 
-PPSlick.prototype.createNormalSignup = function (options) {
+PPSlickClass.prototype.createNormalSignup = function (options) {
     let componentOptions = {};
     componentOptions['userNameNullTip'] = '请输入账号';
     componentOptions['passwordNullTip'] = '请输入密码';
@@ -885,7 +885,7 @@ function EmailSubscribeComponent(e) {
 
 EmailSubscribeComponent.prototype = new PPComponent();
 
-PPSlick.prototype.createEmailSubscription = function (options) {
+PPSlickClass.prototype.createEmailSubscription = function (options) {
     let componentOptions = {};
     componentOptions['emailNullTip'] = '请输入邮箱';
     if (options) {
@@ -977,7 +977,7 @@ EmailSubscribeComponent.prototype.onSubmit = function (fun) {
    this.onSubscribe(fun);
 }
 
-PPSlick.prototype.onSubmit = function (component, fun) {
+PPSlickClass.prototype.onSubmit = function (component, fun) {
     component.onSubmit(fun);
 }
 
@@ -1005,3 +1005,5 @@ addNullTipEvent = function (inputDom, tipText) {
         }
     })
 }
+
+PPSlick = new PPSlickClass();

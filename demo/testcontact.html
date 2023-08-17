@@ -8,8 +8,7 @@
 </head>
 <script>
     window.onload = function () {
-        let ppSlick = new PPSlick();
-        let contactMe = ppSlick.createContactMe({});
+        let contactMe = PPSlick.createContactMe({});
         contactMe.setTypeList(["-请选择类型-",'业务问题','其他问题']);
         contactMe.onSubmit(function (des,type,phone) {
             console.log(des)
