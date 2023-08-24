@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/ppslick.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let fileUploader = PPSlick.createFileUploader({closeOnSubmit:'true'});
+        fileUploader.setDescription("文件描述...");
+        fileUploader.setFilePlaceholder("请选择一个文件");
+        fileUploader.onSubmit(function (file) {
+            console.log(`文件：${file}`);
+        })
+    }
+</script>
+<body>
+
+</body>
+</html>

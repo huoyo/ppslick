@@ -877,6 +877,115 @@ NormalSignupComponent.prototype.onSubmit = function (fun) {
     this.onSignup(fun);
 }
 
+function FileUploadComponent(e) {
+    this.element = e;
+    this.options = {};
+}
+
+FileUploadComponent.prototype = new PPComponent();
+
+
+PPSlickClass.prototype.createFileUploader = function (options) {
+    let componentOptions = {};
+    componentOptions['fileNullTip'] = '请选择文件';
+    if (options) {
+        componentOptions['left'] = options['left'] || 'calc((100% - 25%)/2 - 30px)';
+        componentOptions['top'] = options['top'] || this.defaultOptions.get('top');
+        componentOptions['width'] = options['width'] || '25%';
+        componentOptions['placeholder'] = options['placeholder'] || this.defaultOptions.get('placeholder');
+        componentOptions['maskColor'] = options['maskColor'] || this.defaultOptions.get('maskColor');
+        componentOptions['backgroundColor'] = options['backgroundColor'] || this.defaultOptions.get('backgroundColor');
+        componentOptions['fontColor'] = options['fontColor'] || this.defaultOptions.get('fontColor');
+        componentOptions['fontSize'] = options['fontSize'] || '16px';
+        componentOptions['closeOnSubmit'] = options['closeOnSubmit'] || this.defaultOptions.get('closeOnSubmit');
+    } else {
+        this.defaultOptions.forEach(function (v, k) {
+            if (k=='width') {
+                componentOptions[k] = '25%';
+            }else {
+                componentOptions[k] = v;
+            }
+        })
+    }
+    let searchDom = document.createElement('div');
+    searchDom.className = 'ppmodal ppmodal-login';
+    searchDom.style.background = `${componentOptions['backgroundColor']}`;
+    searchDom.style.left = `${componentOptions['left']}`;
+    searchDom.style.top = `${componentOptions['top']}`;
+    searchDom.style.width = `${componentOptions['width']}`;
+    let id = guid();
+    searchDom.id = id;
+    searchDom.innerHTML = `<p id="${id}-fileupload-description" class="${id}-index-0" style="text-align: left">文件说明</p>
+    <div class="ppmodal-line">
+        <div id="${id}-fileupload-file-div" style="border: 1px solid #e8e8f4; width: 70%;height: 40px;line-height: 40px;display: flex;">
+        <label id="${id}-fileupload-file-label" class="${id}-index-1"  style="width: 99%;font-size: 14px;cursor: pointer" for="${id}-fileupload-file">请选择文件</label>
+          <input id="${id}-fileupload-file" style="width: 1%;border-radius: 5px 0 0 5px;font-size: 16px;line-height:40px;display: none" class="message-input" type="file" placeholder="请选择文件"/>
+        </div>
+       <button id="${id}-fileupload-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2">上传</button>
+    </div>
+         <div id="${id}-fileupload-file-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
+    </div>`;
+    let body = document.getElementsByTagName('body')[0];
+    body.appendChild(searchDom);
+    showPPModal(id, componentOptions['maskColor']);
+    let com = new FileUploadComponent(searchDom);
+    com.options = componentOptions;
+    let fileDom = document.getElementById(`${id}-fileupload-file`);
+    fileDom.addEventListener('change',function () {
+        let fileLabelDom = document.getElementById(`${id}-fileupload-file-label`);
+        if (this.files && this.files.length>0) {
+            fileLabelDom.innerHTML = this.files[0].name;
+        }
+    })
+    return com;
+}
+
+FileUploadComponent.prototype.setDescription= function (data) {
+    let searchDomId = this.getElement().id;
+    let conDom = document.getElementById(`${searchDomId}-fileupload-description`);
+    conDom.innerHTML = data;
+}
+
+FileUploadComponent.prototype.setFilePlaceholder = function (data) {
+    this.setAttribute(1,'html',data)
+}
+
+FileUploadComponent.prototype.setFileNullTip = function (data) {
+    this.options['fileNullTip'] = data;
+}
+
+FileUploadComponent.prototype.onUpload = function (fun) {
+    let dom = this.getElement();
+    let options = this.getOptions();
+    let buttonId = `${dom.id}-fileupload-button`;
+    let buttonDom = document.getElementById(buttonId);
+    buttonDom.addEventListener("click", function () {
+        let divDom = document.getElementById(`${dom.id}-fileupload-file-div`);
+        let fileDom = document.getElementById(`${dom.id}-fileupload-file`);
+        if (!fileDom.files || fileDom.files.length==0) {
+            let tipDom = document.getElementById(`${fileDom.id}-tip`);
+            tipDom.innerHTML = options['fileNullTip'];
+            divDom.style.borderColor = 'red';
+            fileDom.addEventListener('change',function () {
+                if (this.value) {
+                    tipDom.innerHTML = '';
+                    divDom.style.borderColor = '#e8e8f4';
+                }
+            })
+            return
+        }
+        fun(fileDom.files[0]);
+        if (options['closeOnSubmit']=='true') {
+            closePPModal(`${dom.id}`);
+        }
+    });
+}
+
+FileUploadComponent.prototype.onSubmit = function (fun) {
+   this.onUpload(fun);
+}
+
+
 
 function EmailSubscribeComponent(e) {
     this.element = e;
