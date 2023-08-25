@@ -15,7 +15,7 @@
 </div>
 
 
-<h4>一个javascript组件库，提供基本的联系我、登录、注册、搜索和邮件订阅之类的弹窗组件（无需写html+css），拿来即用</h4>
+<h4>一个javascript组件库，提供基本的联系我、登录、注册、搜索、邮件订阅和文件上传之类的弹窗组件（无需写html+css），拿来即用</h4>
 
 <h4>A lightweight javascript library to create some modal windows without html and css like `contact me`、`search`、`login`、`sign up` and `email subscribe` etc.</h4>
 
@@ -364,6 +364,42 @@ emailSubscription.setDescription("订阅描述...");
 //提交回调函数
 emailSubscription.onSubmit(function (email) {
     console.log(`邮箱：${email}`);
+})
+```
+
+#### 7.文件上传组件
+
+##### 7.1.创建组件
+
+```javascript
+let fileUploader = PPSlick.createFileUploader({closeOnSubmit:'true'});
+fileUploader.setDescription("文件描述...");
+fileUploader.setFilePlaceholder("请选择一个文件");
+
+```
+##### 7.2.提交回调函数
+
+```javascript
+fileUploader.onSubmit(function (file) {
+    console.log(file.name);
+    console.log(file.size);
+    console.log(file.type);
+    //请求后台进行上传，比如
+    // let formData = new FormData();
+    // formData.append('file', file);
+    // $.ajax({
+    //     url: '/file/importFile',
+    //     type: 'POST',
+    //     cache: false,
+    //     data: formData,
+    //     processData: false,
+    //     contentType: false,
+    //     dataType: "json",
+    //     success: function (response) {
+    //     },
+    //     error: function (XmlHttpRequest, textStatus, errorThrown) {
+    //     }
+    // })
 })
 ```
 

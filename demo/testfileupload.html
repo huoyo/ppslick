@@ -12,7 +12,9 @@
         fileUploader.setDescription("文件描述...");
         fileUploader.setFilePlaceholder("请选择一个文件");
         fileUploader.onSubmit(function (file) {
-            console.log(`文件：${file}`);
+            console.log(file.name);
+            console.log(file.size);
+            console.log(file.type);
         })
     }
 </script>
