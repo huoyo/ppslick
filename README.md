@@ -53,7 +53,7 @@
 ### 一、引入依赖
 
 ```html
-<script src="../src/ppslick.js"></script>
+<script src="../release/ppslick-1.0.0.min.js"></script>
 ```
 
 
