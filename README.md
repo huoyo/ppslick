@@ -5,6 +5,7 @@
 
 <div align="center">
     <h2>个人/初始团队的网站基础弹窗组件库</h2> 
+    <h2>For independent developers ,small businesses and start-ups.</h2> 
 </div>
 
 <div align="center">
@@ -22,15 +23,15 @@
 
 ## 使用参考
 
-1、搜索组件，参考[testsearch.html](demo/testsearch.html)
+1、搜索组件，参考[testsearch.html](demo/testsearch.html) 
 
 ![输入图片说明](image/search.png)
 
-2、联系我组件，参考[testcontact.html](demo/testcontact.html)
+2、联系我组件，参考[testcontact.html](demo/testcontact.html) [testcontact-english.html](demo/testcontact-en.html)
 
 ![输入图片说明](contact.png)
 
-3、登录组件，参考[testlogin.html](demo/testlogin.html)
+3、登录组件，参考[testlogin.html](demo/testlogin.html) [testlogin-english.html](demo/testlogin-en.html)
 
 ![输入图片说明](image/login.png)
 
@@ -40,7 +41,7 @@
 
 ![输入图片说明](image/signup.png)
 
-5、邮件订阅组件，参考[testemailsubscribe.html](demo/testemailsubscribe.html)
+5、邮件订阅组件，参考[testemailsubscribe.html](demo/testemailsubscribe.html) [testemailsubscribe-english.html](demo/testemailsubscribe-en.html)
 
 ![输入图片说明](image/email.png)
 

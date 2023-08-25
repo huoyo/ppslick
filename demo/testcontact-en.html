@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/ppslick.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let contactMe = PPSlick.createContactMe({});
+        contactMe.setTypeList(["-Choice a type-",'business','other']);
+        contactMe.setDescriptionPlaceholder("Describe you problem");
+        //add a prompt for null value
+        contactMe.setDescriptionNullTip("Please describe you problem");
+        contactMe.setNumberPlaceholder("type your phone number")
+        //add a prompt for null value
+        contactMe.setNumberNullTip("Please type your phone number")
+        contactMe.setConfirmButtonLabel("OK")
+        contactMe.onSubmit(function (des,type,phone) {
+            console.log(des)
+            console.log(type)
+            console.log(phone)
+        })
+
+    }
+</script>
+<body>
+
+</body>
+</html>

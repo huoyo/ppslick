@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../src/ppslick.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        let login = PPSlick.createNormalLogin({closeOnSubmit:'true'});
+
+        login.disableRememberMe();
+        login.disableForgetPassword();
+        //更改标签
+        login.setTitle("Login")
+        login.setUserNamePlaceholder("Account")
+        //add a prompt for null value
+        login.setUserNameNullTip("Please type your Account")
+        login.setPasswordPlaceholder("Password")
+        //add a prompt for null value
+        login.setPasswordNullTip("Please type your Password")
+        login.setConfirmButtonLabel('OK')
+        login.setCancelButtonLabel('Cancel')
+        login.onSubmit(function (userName,password,isRememberme) {
+            console.log(`Account：${userName}`);
+            console.log(`Password：${password}`);
+            console.log(`Rememberme：${isRememberme}`);
+        })
+        //点击忘记密码触发
+        // login.onForgetPassword(function (user) {
+        //     console.log(`忘记密码：${user}`);
+        // })
+
+    }
+</script>
+<body>
+
+</body>
+</html>
