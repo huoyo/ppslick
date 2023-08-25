@@ -225,6 +225,13 @@ login.setUserNamePlaceholder('请输入账号')
 login.setRememberMeLabel('请记住我')
 //更忘记密码的提示
 login.setForgetPasswordLabel('忘记了密码')
+
+//更改标签
+// login.setTitle("Login")
+// login.setUserNamePlaceholder("Account")
+// login.setPasswordPlaceholder("Password")
+// login.setConfirmButtonLabel('OK')
+// login.setCancelButtonLabel('Cancel')
 ```
 
 ##### 3.4.忘记密码回调函数
