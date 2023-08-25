@@ -44,6 +44,9 @@
 
 ![输入图片说明](image/email.png)
 
+6、文件上传组件，参考[testfileupload.html](demo/testfileupload.html)
+![输入图片说明](image/file.png)
+
 ## 教程
 
 ### 一、引入依赖
