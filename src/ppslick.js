@@ -90,6 +90,37 @@ PPComponent.prototype.setAttribute = function (index, property, value) {
     }
 }
 
+PPComponent.prototype.setConfirmButtonLabel = function (text) {
+    let element = this.getElement();
+    let buttons = document.getElementsByClassName(`${element.id}-ok-button`);
+    if (buttons && buttons.length>0) {
+        buttons[0].innerHTML = text;
+    }else {
+        console.error("invalid Label for this Component")
+    }
+}
+
+PPComponent.prototype.setConfirmButtonBackgroundColor = function (color) {
+    let element = this.getElement();
+    let buttons = document.getElementsByClassName(`${element.id}-ok-button`);
+    if (buttons && buttons.length>0) {
+        buttons[0].style.backgroundColor = color;
+        buttons[0].style.borderColor = color;
+    }else {
+        console.error("invalid BackgroundColor for this Component")
+    }
+}
+
+PPComponent.prototype.setConfirmButtonFontColor = function (color) {
+    let element = this.getElement();
+    let buttons = document.getElementsByClassName(`${element.id}-ok-button`);
+    if (buttons && buttons.length>0) {
+        buttons[0].style.color = color;
+    }else {
+        console.error("invalid BackgroundColor for this Component")
+    }
+}
+
 PPComponent.prototype.setCheckRegExp = function (index, regexp) {
     let element = this.getElement();
     let inputs = document.getElementsByClassName(`${element.id}-index-${index}`);
@@ -375,7 +406,7 @@ PPSlickClass.prototype.createContactMe = function (options) {
      <div id="${id}-contact-phone-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
     <div class="ppmodal-line">
-        <button id="${id}-contact-button" class="message-button  ${id}-index-3">确定</button>
+        <button id="${id}-contact-button" class="message-button  ${id}-index-3 ${id}-ok-button" style="">确定</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
@@ -439,7 +470,7 @@ PPSlickClass.prototype.createNormalLogin = function (options) {
         <div id="${id}-login-forget-div"  style="width: 100%"><a id="${id}-login-forget" href="#" class="${id}-index-4">忘记密码</a></div>
     </div>
     <div class="ppmodal-line">
-        <button id="${id}-login-confirm" class="confirm-button ${id}-index-5">登录</button>
+        <button id="${id}-login-confirm" class="confirm-button ${id}-index-5 ${id}-ok-button" style="">登录</button>
         <span style="width: 50px"></span>
         <button class="cancel-button  ${id}-index-6" onclick="closePPModal('${id}')">取消</button>
     </div>`;
@@ -615,7 +646,7 @@ PPSlickClass.prototype.createVerificationCodeLogin = function (options) {
      <div id="${id}-login-verification-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
     <div class="ppmodal-line">
-        <button id="${id}-login-confirm" class="confirm-button ${id}-index-4">登录</button>
+        <button id="${id}-login-confirm" class="confirm-button ${id}-index-4 ${id}-ok-button" style="">登录</button>
         <span style="width: 50px"></span>
         <button class="cancel-button  ${id}-index-5" onclick="closePPModal('${id}')">取消</button>
     </div>`;
@@ -766,7 +797,7 @@ PPSlickClass.prototype.createNormalSignup = function (options) {
       <div id="${id}-signup-repassword-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>
     <div class="ppmodal-line">
-        <button id="${id}-signup-confirm" class="confirm-button ${id}-index-4">注册</button>
+        <button id="${id}-signup-confirm" class="confirm-button ${id}-index-4 ${id}-ok-button" style="">注册</button>
         <span style="width: 50px"></span>
         <button class="cancel-button  ${id}-index-5" onclick="closePPModal('${id}')">取消</button>
     </div>`;
@@ -921,7 +952,7 @@ PPSlickClass.prototype.createFileUploader = function (options) {
         <label id="${id}-fileupload-file-label" class="${id}-index-1"  style="width: 99%;font-size: 14px;cursor: pointer" for="${id}-fileupload-file">请选择文件</label>
           <input id="${id}-fileupload-file" style="width: 1%;border-radius: 5px 0 0 5px;font-size: 16px;line-height:40px;display: none" class="message-input" type="file" placeholder="请选择文件"/>
         </div>
-       <button id="${id}-fileupload-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2">上传</button>
+       <button id="${id}-fileupload-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2 ${id}-ok-button">上传</button>
     </div>
          <div id="${id}-fileupload-file-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>`;
@@ -1027,7 +1058,7 @@ PPSlickClass.prototype.createEmailSubscription = function (options) {
     searchDom.innerHTML = `<p id="${id}-emailsubscribe-description" class="${id}-index-0" style="text-align: left">订阅说明</p>
     <div class="ppmodal-line">
       <input id="${id}-emailsubscribe-email" style="width: 70%;border-radius: 5px 0 0 5px;font-size: 16px;" class="message-input ${id}-index-1" type="text" placeholder="xx@xx.com"/>
-       <button id="${id}-emailsubscribe-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2">订阅</button>
+       <button id="${id}-emailsubscribe-button" style="width: 30%;border-radius: 0 5px 5px 0;font-size: 16px;height: 43px" class="confirm-button ${id}-index-2 ${id}-ok-button">订阅</button>
     </div>
          <div id="${id}-emailsubscribe-email-tip" style="text-align: left;color: red;font-size: 14px;padding-left: 10px;height: 20px">
     </div>`;
