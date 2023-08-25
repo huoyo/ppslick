@@ -100,6 +100,16 @@ PPComponent.prototype.setConfirmButtonLabel = function (text) {
     }
 }
 
+PPComponent.prototype.setCancelButtonLabel = function (text) {
+    let element = this.getElement();
+    let buttons = document.getElementsByClassName(`${element.id}-cancel-button`);
+    if (buttons && buttons.length>0) {
+        buttons[0].innerHTML = text;
+    }else {
+        console.error("invalid Label for this Component")
+    }
+}
+
 PPComponent.prototype.setConfirmButtonBackgroundColor = function (color) {
     let element = this.getElement();
     let buttons = document.getElementsByClassName(`${element.id}-ok-button`);
@@ -111,9 +121,30 @@ PPComponent.prototype.setConfirmButtonBackgroundColor = function (color) {
     }
 }
 
+PPComponent.prototype.setCancelButtonBackgroundColor = function (color) {
+    let element = this.getElement();
+    let buttons = document.getElementsByClassName(`${element.id}-cancel-button`);
+    if (buttons && buttons.length>0) {
+        buttons[0].style.backgroundColor = color;
+        buttons[0].style.borderColor = color;
+    }else {
+        console.error("invalid BackgroundColor for this Component")
+    }
+}
+
 PPComponent.prototype.setConfirmButtonFontColor = function (color) {
     let element = this.getElement();
     let buttons = document.getElementsByClassName(`${element.id}-ok-button`);
+    if (buttons && buttons.length>0) {
+        buttons[0].style.color = color;
+    }else {
+        console.error("invalid BackgroundColor for this Component")
+    }
+}
+
+PPComponent.prototype.setCancelButtonFontColor = function (color) {
+    let element = this.getElement();
+    let buttons = document.getElementsByClassName(`${element.id}-cancel-button`);
     if (buttons && buttons.length>0) {
         buttons[0].style.color = color;
     }else {
@@ -472,7 +503,7 @@ PPSlickClass.prototype.createNormalLogin = function (options) {
     <div class="ppmodal-line">
         <button id="${id}-login-confirm" class="confirm-button ${id}-index-5 ${id}-ok-button" style="">登录</button>
         <span style="width: 50px"></span>
-        <button class="cancel-button  ${id}-index-6" onclick="closePPModal('${id}')">取消</button>
+        <button class="cancel-button  ${id}-index-6 ${id}-cancel-button" onclick="closePPModal('${id}')" style="">取消</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
@@ -648,7 +679,7 @@ PPSlickClass.prototype.createVerificationCodeLogin = function (options) {
     <div class="ppmodal-line">
         <button id="${id}-login-confirm" class="confirm-button ${id}-index-4 ${id}-ok-button" style="">登录</button>
         <span style="width: 50px"></span>
-        <button class="cancel-button  ${id}-index-5" onclick="closePPModal('${id}')">取消</button>
+        <button class="cancel-button  ${id}-index-5 ${id}-cancel-button" onclick="closePPModal('${id}')" style="">取消</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
@@ -799,7 +830,7 @@ PPSlickClass.prototype.createNormalSignup = function (options) {
     <div class="ppmodal-line">
         <button id="${id}-signup-confirm" class="confirm-button ${id}-index-4 ${id}-ok-button" style="">注册</button>
         <span style="width: 50px"></span>
-        <button class="cancel-button  ${id}-index-5" onclick="closePPModal('${id}')">取消</button>
+        <button class="cancel-button  ${id}-index-5 ${id}-cancel-button" onclick="closePPModal('${id}')" style="">取消</button>
     </div>`;
     let body = document.getElementsByTagName('body')[0];
     body.appendChild(searchDom);
